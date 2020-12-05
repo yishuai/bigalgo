@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>大数据存储和计算</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <h1>大数据存储和计算</h1>
+
+    <p>陈一帅</p>
+
+    <p><a href="mailto:yschen@bjtu.edu.cn">yschen@bjtu.edu.cn</a></p>
+
+    <p>北京交通大学电子信息工程学院网络智能实验室</p>
+
+    <img src="figure/cn.png" width="150" alt="2dmark" />
+
+    <p>
+      北京交通大学《大数据存储和计算》课程，源自斯坦福CS245大规模数据挖掘，基于 Spark
+      讲解大数据机器学习和数据挖掘算法的基本原理和算法，一路下来，带大家在动手中，走上大数据研发的职业道路。详细课程信息请访问：https://yishuai.github.io/bigalgo
+    </p>
+
+    <h3>目录</h3>
+    <ol>
+      <li><a href="#intro">大数据介绍</a></li>
+      <li><a href="#memory">存储</a></li>
+      <li><a href="#component">Spark的组成</a></li>
+      <li><a href="#rdd">Spark实验平台</a></li>
+      <!-- <li><a href="#partition">分区并行机制</a></li>
+      <li><a href="#method">RDD操作方法</a></li>
+      <li><a href="#rdd-lab">RDD编程练习</a></li>
+      <li><a href="#mit">MIT Spark RDD示例</a></li>
+      <li><a href="#dataframe">DataFrame编程</a></li>
+      <li><a href="#lab">实验介绍</a></li>
+      <li><a href="#stream">Streaming流式计算</a></li>
+      <li><a href="#ml">机器学习</a></li> -->
+    </ol>
+
+    <!-- == -->
+
+    <h2><a name="intro">一、大数据介绍</a></h2>
+
+    <p>本节带大家了解大数据及其应用的特点，参观大数据中心</p>
+
+    <p><a href="https://www.bilibili.com/video/BV1nZ4y1g7vt/">B站视频</a></p>
+    <p>课程PPT：<a href="ppt/1-intro.pptx">PPT</a>（7MB）</p>
+
+    <h2><a name="memory">二、存储模型</a></h2>
+
+    <p>本节详细介绍大数据系统的存储模型和各项性能指标，然后学习目前最流行的分布式文件系统HDFS的基础知识。这是了解大数据系统的基础，对理解大数据系统性能至关重要。快来看看吧。</p>
+
+    <p><a href="https://www.bilibili.com/video/BV1SA411W7gf/">B站视频</a></p>
+
+    <p>课程PPT：<a href="ppt/2-memory.pptx">PPT</a>（1MB）</p>
+
+    <h2><a name="component">三、计算模型</a></h2>
+
+    <p>本节介绍Map-Reduce计算模型、框架、开销分析和优化。大数据计算就是通过Map-Reduce实现的，所以掌握这些内容非常重要。快来看看吧。</p>
+
+    <p><a href="https://www.bilibili.com/video/BV1e5411G7Qx/">B站视频</a></p>
+
+    <p>课程PPT：<a href="ppt/3-mapreduce.pptx">PPT</a>（1MB）</p>
+
+    <h2><a name="rdd">四、Spark实验平台</a></h2>
+
+    <p>Spark是目前大数据系统的主流平台。安装Spark非常简单，你也可以利用很多在线的Spark实验环境，快来看看吧。</p>
+
+    <p><a href="https://www.bilibili.com/video/BV1jA41147T9/">B站视频</a></p>
+    <p>课程PPT：<a href="ppt/4-spark.pptx">PDF</a>（1MB）</p>
+
+    <!-- <h2><a name="partition">五、分区并行机制</a></h2>
+
+    <p>Spark通过将RDD进行分区，然后在各分区上并行计算，实现高性能分布式计算。本节介绍分区的原理、性能和优化方法。本节内容对优化Spark性能非常重要，请细心领会。</p>
+
+    <p><a href="">B站视频</a></p>
+
+    <h2><a name="method">六、RDD操作方法</a></h2>
+
+    <p>Spark提供了基于Map-Reduce计算范式的各种RDD操作方法，同时设计了Lazy的操作执行方式。本节介绍它提供的各种操作函数，并通过实例讲解这些函数的使用，以及Lazy方式带来的好处。本节对Spark编程非常重要。</p>
+
+    <p><a href="">B站视频</a></p>
+
+    <h2><a name="rdd-lab">七、RDD编程练习</a></h2>
+
+    <p>本节基于华为NAIE Spark在线练习平台，练习Piotrszul Spark入门代码的第一课：RDD基础。这是一个简单的文本处理例子，帮助你熟悉RDD编程的基本流程和函数。实验手册如下：</p>
+
+    <p><a href="">B站视频</a></p>
+    <p>实验手册1：Spark环境配置和使用，<a href="lab/ppt/1-env.pptx">PPT</a>（941KB）</p>
+    <p>实验手册2：RDD和DataFrame练习，<a href="lab/ppt/2-rdd-df.pptx">PPT</a>（60KB）</p>
+
+    <h2><a name="mit">八、MIT Spark RDD示例</a></h2>
+
+    <p>MIT（麻省理工学院）经典课程 6.824 分布式系统中，有一节Spark课程。本节我们一起来看这个课程中讲解的网页PageRank RDD编程实例，进一步提高我们对RDD编程的认识。</p>
+
+    <p><a href="">B站视频</a></p>
+
+    <h2><a name="dataframe">九、DataFrame编程</a></h2>
+
+    <p>实际中，Spark提供了SQL和DataFrame编程接口，让我们能够快速上手大数据编程。本节介绍这些编程接口，然后基于华为NAIE Spark在线大数据实验平台，练习Piotrszul Spark入门练习代码的第二课：结构化数据编程。学习了这一课，你就可以开始你的Spark编程之旅了。实验手册如下。Enjoy！</p>
+
+    <p><a href="">B站视频</a></p>
+    <p><a href="ppt/9-dataframe.pdf">PPT</a>（PDF，3.4MB）</p>
+
+    <h2><a name="lab">十、实验介绍</a></h2>
+
+    <p>本节我们将提供给大家一系列的实验，包括数据和代码，供大家练习。掌握Spark编程的秘诀是什么呢？就是编。好好做好这些实验吧。</p>
+
+    <p><a href="">B站视频</a></p>
+
+    <p>实验手册3：Spark 大数据练习，<a href="lab/ppt/3-lab.pptx">PPT</a>（64KB）</p>
+
+    <h2><a name="stream">十一、Streaming流式计算</a></h2>
+
+    <p>Streaming流式计算能及时给出分析结果，帮助决策、管理和控制，因此应用越来越广。本节介绍Spark流式计算的基本原理，并讲解一个代码。</p>
+
+    <p><a href="">B站视频</a></p>
+
+    <p><a href="ppt/16-streaming.pdf">PPT</a>（PDF，1.7MB）</p>
+
+    <h2><a name="ml">十二、机器学习</a></h2>
+
+    <p>人工智能时代，机器学习是同学们必须掌握的技能。本节介绍Spark机器学习相关的各种函数，并定位到各个实验中。通过本节及其配套实验的练习，你将打开机器学习的大门。加油！</p>
+
+    <p><a href="">B站视频</a></p>
+
+    <p><a href="ppt/15-ml.pdf">PPT</a>（PDF，1.1MB）</p> -->
+
+    <!-- <h2><a name="">、</a></h2>
+
+    <p></p>
+">B站视频</a></p> -->
+
+    <!-- <h2 id="致谢">致谢</h2>
+    <ul>
+      <li></li>
+    </ul> -->
+  </body>
+</html>
