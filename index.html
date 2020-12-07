@@ -22,30 +22,45 @@
 
     <h3>目录</h3>
     <ol>
-      <li><a href="#intro">大数据介绍</a></li>
-      <li><a href="#memory">存储模型</a></li>
-      <li><a href="#component">计算模型</a></li>
-      <li><a href="#rdd">Spark实验平台</a></li>
-      <!-- <li><a href="#partition">分区并行机制</a></li>
-      <li><a href="#method">RDD操作方法</a></li>
-      <li><a href="#rdd-lab">RDD编程练习</a></li>
-      <li><a href="#mit">MIT Spark RDD示例</a></li>
-      <li><a href="#dataframe">DataFrame编程</a></li>
-      <li><a href="#lab">实验介绍</a></li>
-      <li><a href="#stream">Streaming流式计算</a></li>
-      <li><a href="#ml">机器学习</a></li> -->
-    </ol>
+      <li>大数据</li>
+      <ul>
+        <li><a href="#intro">大数据介绍</a></li>
+        <li><a href="#memory">存储模型</a></li>
+        <li><a href="#compute">计算模型</a></li>
+      </ul>
+      <li>Perceptron 感知机</li>
+      <ul>
+        <li><a href="#ml">机器学习基本概念</a></li>
+        <li><a href="#perceptron">感知机</a></li>
+        <li><a href="#perceptron-learn">感知机的学习</a></li>
+        <li><a href="#perceptron-opti">感知机的优化</a></li>
+        <li><a href="#opti">Winnow分类算法</a></li>
+      </ul>
+      <li>SVM 支持向量机</li>
+      <ul>
+        <li><a href="#svm">SVM支持向量机</a></li>
+        <li><a href="#svm-learn">SVM的学习</a></li>
+        <li><a href="#hinge">Hinge Loss</a></li>
+        <li><a href="#loss">SVM Loss</a></li>
+        <li><a href="#deriv">SVM梯度下降优化</a></li>
+        <li><a href="#hinge-div">Hinge Loss导数表</a></li>
+        <li><a href="#sgd">随机和Batch梯度下降</a></li>
+      </ul>
+
+      </ol>
 
     <!-- == -->
 
-    <h2><a name="intro">一、大数据介绍</a></h2>
+    <h2>A、大数据</h2>
+
+    <h3><a name="intro">一、大数据介绍</a></h3>
 
     <p>本节带大家了解大数据及其应用的特点，参观大数据中心</p>
 
     <p><a href="https://www.bilibili.com/video/BV1nZ4y1g7vt/">B站视频</a></p>
     <p>课程PPT：<a href="ppt/1-intro.pptx">PPT</a>（7MB）</p>
 
-    <h2><a name="memory">二、存储模型</a></h2>
+    <h3><a name="memory">二、存储模型</a></h3>
 
     <p>本节详细介绍大数据系统的存储模型和各项性能指标，然后学习目前最流行的分布式文件系统HDFS的基础知识。这是了解大数据系统的基础，对理解大数据系统性能至关重要。快来看看吧。</p>
 
@@ -53,7 +68,7 @@
 
     <p>课程PPT：<a href="ppt/2-memory.pptx">PPT</a>（1MB）</p>
 
-    <h2><a name="component">三、计算模型</a></h2>
+    <h3><a name="compute">三、计算模型</a></h3>
 
     <p>本节介绍Map-Reduce计算模型、框架、开销分析和优化。大数据计算就是通过Map-Reduce实现的，所以掌握这些内容非常重要。快来看看吧。</p>
 
@@ -61,74 +76,90 @@
 
     <p>课程PPT：<a href="ppt/3-mapreduce.pptx">PPT</a>（1MB）</p>
 
-    <h2><a name="rdd">四、Spark实验平台</a></h2>
+    <h2>B、感知机</h2>
 
-    <p>Spark是目前大数据系统的主流平台。安装Spark非常简单，你也可以利用很多在线的Spark实验环境，快来看看吧。</p>
+    <h3><a name="ml">四、机器学习基本概念</a></h3>
 
-    <p><a href="https://www.bilibili.com/video/BV1jA41147T9/">B站视频</a></p>
-    <p>课程PPT：<a href="ppt/4-spark.pptx">PDF</a>（1MB）</p>
+    <p>机器学习是从已知数据中学习出一个函数，然后用这个函数对未知的数据进行预测。本节我们简单了解一下这个概念。</p>
 
-    <!-- <h2><a name="partition">五、分区并行机制</a></h2>
+    <p><a href="https://www.bilibili.com/video/BV1v5411G7dR/">B站视频</a></p>
+    <p>课程PPT：<a href="ppt/4-ml.pptx">PPT</a>（90KB）</p>
 
-    <p>Spark通过将RDD进行分区，然后在各分区上并行计算，实现高性能分布式计算。本节介绍分区的原理、性能和优化方法。本节内容对优化Spark性能非常重要，请细心领会。</p>
+    <h3><a name="perceptron">五、感知机</a></h3>
 
-    <p><a href="">B站视频</a></p>
+    <p>感知机模型是一个非常优美、容易理解的机器学习模型。让我们以它为例子，理解什么是机器学习模型吧。很好理解的。试试吧？</p>
 
-    <h2><a name="method">六、RDD操作方法</a></h2>
+    <p><a href="https://www.bilibili.com/video/BV1xK41137kn/">B站视频</a></p>
+    <p>课程PPT：<a href="ppt/5-perceptron.pptx">PPT</a>（1.8MB）</p>
 
-    <p>Spark提供了基于Map-Reduce计算范式的各种RDD操作方法，同时设计了Lazy的操作执行方式。本节介绍它提供的各种操作函数，并通过实例讲解这些函数的使用，以及Lazy方式带来的好处。本节对Spark编程非常重要。</p>
+    <h3><a name="rdd-lab">六、感知机的学习</a></h3>
 
-    <p><a href="">B站视频</a></p>
+    <p>感知机有着非常优美的几何描述。基于该几何描述，我们能够非常轻松地理解机器学习是如何从数据中学会一个模型的。这个过程非常有意思，就像人类一样，它能够从错误中改进自己，取得进步呢！所以犯错误真的是非常棒的，因为错误是最好的学习机会。快来看看吧。</p>
 
-    <h2><a name="rdd-lab">七、RDD编程练习</a></h2>
+    <p><a href="https://www.bilibili.com/video/BV1Ly4y1S7vp/">B站视频</a></p>
+    <p>课程PPT：<a href="ppt/6-perceptron-model.pptx">PPT</a>（146KB）</p>
 
-    <p>本节基于华为NAIE Spark在线练习平台，练习Piotrszul Spark入门代码的第一课：RDD基础。这是一个简单的文本处理例子，帮助你熟悉RDD编程的基本流程和函数。实验手册如下：</p>
+    <h3><a name="perceptron-opti">七、感知机的优化</a></h3>
 
-    <p><a href="">B站视频</a></p>
-    <p>实验手册1：Spark环境配置和使用，<a href="lab/ppt/1-env.pptx">PPT</a>（941KB）</p>
-    <p>实验手册2：RDD和DataFrame练习，<a href="lab/ppt/2-rdd-df.pptx">PPT</a>（60KB）</p>
+    <p>感知机模型也有一些不足，比如它只能模型能够线性分隔的数据。这个缺点曾经导致感知机被放弃了很多年，直到深度学习挽救了它。本节我们介绍当数据线性不可分时，如何训练感知机模型，以及多元感知机和非线性感知机。它们让我们理解现实世界中的机器学习任务是非常复杂的，我们需要对数据有清楚的认识，才来训练出好的机器学习模型。这就是成为一个机器学习高手的秘诀。快来看看吧。</p>
 
-    <h2><a name="mit">八、MIT Spark RDD示例</a></h2>
+    <p><a href="https://www.bilibili.com/video/BV1c64y1f757/">B站视频</a></p>
+    <p>课程PPT：<a href="ppt/7-perceptron-more.pptx">PPT</a>（168KB）</p>
 
-    <p>MIT（麻省理工学院）经典课程 6.824 分布式系统中，有一节Spark课程。本节我们一起来看这个课程中讲解的网页PageRank RDD编程实例，进一步提高我们对RDD编程的认识。</p>
+    <h3><a name="opti">八、Winnow分类算法</a></h3>
 
-    <p><a href="">B站视频</a></p>
+    <p>Winnow分类算法和感知机很像，但它使用乘法。当许多维度无关时，它性能更好。它很简单，因此很适合高维数据，在大数据中很常用。快来看看吧。</p>
+    <p><a href="https://www.bilibili.com/video/BV1TV411h79P/">B站视频</a></p>
+    <p>课程PPT：<a href="ppt/8-winnow.pptx">PPT</a>（129KB）</p>
 
-    <h2><a name="dataframe">九、DataFrame编程</a></h2>
+    <h2>C、支持向量机</h2>
 
-    <p>实际中，Spark提供了SQL和DataFrame编程接口，让我们能够快速上手大数据编程。本节介绍这些编程接口，然后基于华为NAIE Spark在线大数据实验平台，练习Piotrszul Spark入门练习代码的第二课：结构化数据编程。学习了这一课，你就可以开始你的Spark编程之旅了。实验手册如下。Enjoy！</p>
+    <h3><a name="svm">九、SVM支持向量机</a></h3>
 
-    <p><a href="">B站视频</a></p>
-    <p><a href="ppt/9-dataframe.pdf">PPT</a>（PDF，3.4MB）</p>
+    <p>和感知机一样，SVM支持向量机也是要找到一个线性分隔平面。但它比感知机厉害。感知机只要训练集没有错误了，就停止优化了，而SVM还会继续优化，直到找到最佳的分隔平面为止。这是什么意思呢？快来看看吧。</p>
 
-    <h2><a name="lab">十、实验介绍</a></h2>
+    <p><a href="https://www.bilibili.com/video/BV1pi4y157Rk/">B站视频</a></p>
+    <p>课程PPT：<a href="ppt/9-svm.pptx">PPT</a>（690KB）</p>
 
-    <p>本节我们将提供给大家一系列的实验，包括数据和代码，供大家练习。掌握Spark编程的秘诀是什么呢？就是编。好好做好这些实验吧。</p>
+    <h3><a name="svm-learn">十、SVM的学习</a></h3>
 
-    <p><a href="">B站视频</a></p>
+    <p>本节介绍如何构建SVM的优化问题，找到最优线性分隔平面。这个过程非常有意思。快来看看吧。</p>
 
-    <p>实验手册3：Spark 大数据练习，<a href="lab/ppt/3-lab.pptx">PPT</a>（64KB）</p>
+    <p><a href="https://www.bilibili.com/video/BV1k54y167MX/">B站视频</a></p>
+    <p>课程PPT：<a href="ppt/10-svm-model.pptx">PPT</a>（523KB）</p>
 
-    <h2><a name="stream">十一、Streaming流式计算</a></h2>
+    <h3><a name="hinge">十一、Hinge Loss</a></h3>
 
-    <p>Streaming流式计算能及时给出分析结果，帮助决策、管理和控制，因此应用越来越广。本节介绍Spark流式计算的基本原理，并讲解一个代码。</p>
+    <p>加入Hinge Loss，对越过分隔平面的样本点进行惩罚，这让SVM更能容忍噪声，反映数据的本质特征。Hinge Loss非常有趣，让我们看看吧。</p>
 
-    <p><a href="">B站视频</a></p>
+    <p><a href="https://www.bilibili.com/video/BV1ja4y1H7J1/">B站视频</a></p>
+    <p>课程PPT：<a href="ppt/11-svm-sgd.pptx">PPT</a>（776KB）</p>
 
-    <p><a href="ppt/16-streaming.pdf">PPT</a>（PDF，1.7MB）</p>
+    <h3><a name="loss">十二、SVM Loss</a></h3>
 
-    <h2><a name="ml">十二、机器学习</a></h2>
+    <p>本节我们综合考虑分割平面的距离Loss和样本的Hinge Loss，得到整个SVM模型的Loss函数。通过控制该函数中的C参数，我们可以调节模型对噪声的容忍度，及其泛化能力。该Loss函数是Convex的，所以可以用梯度下降法优化，这就太方便了。快来看看吧。</p>
 
-    <p>人工智能时代，机器学习是同学们必须掌握的技能。本节介绍Spark机器学习相关的各种函数，并定位到各个实验中。通过本节及其配套实验的练习，你将打开机器学习的大门。加油！</p>
+    <p><a href="https://www.bilibili.com/video/BV1Wv411b7sE/">B站视频</a></p>
 
-    <p><a href="">B站视频</a></p>
+    <h3><a name="deriv">十三、SVM梯度下降优化</a></h3>
 
-    <p><a href="ppt/15-ml.pdf">PPT</a>（PDF，1.1MB）</p> -->
+    <p>本节介绍如何计算SVM Loss函数的梯度，特别是Hinge Loss的梯度。得到了梯度后，我们就可以用梯度下降方法，从数据中学习SVM模型了！快来看看吧。</p>
 
-    <!-- <h2><a name="">、</a></h2>
+    <p><a href="https://www.bilibili.com/video/BV1p64y1f7FN/">B站视频</a></p>
 
-    <p></p>
-">B站视频</a></p> -->
+    <h3><a name="hinge-deriv">十四、Hinge Loss导数表</a></h3>
+
+    <p>本节介绍Hinge Loss导数表。我们将利用这个表，计算所有样本的Hinge Loss的导数。在大数据中，这个表会非常大，所以用Map-Reduce来实现它。了解这个对理解大数据下的SVM模型非常重要。让我们来看看吧。</p>
+
+    <p><a href="https://www.bilibili.com/video/BV12a4y1W7NH/">B站视频</a></p>
+
+    <h3><a name="sgd">十五、随机和Batch梯度下降</a></h3>
+
+    <p>本节介绍随机梯度下降和Batch梯度下降方法的原理、实现和效果。这些方法能够极大地提高模型训练的速度（上万倍），所以是目前机器学习和深度学习中的主流方法，请一定好好理解它们。我们然后为你准备了一个斯坦福大学的SVM三种梯度下降方法的作业。请一定要完成它，这样你才会真正懂得梯度下降和SVM模型。记住，一定完成它！</p>
+
+    <p><a href="https://www.bilibili.com/video/BV1sT4y1M7pV/">B站视频</a></p>
+
+    <p>练习：<a href="hw/hw4.pdf">PDF</a>（274KB），<a href="hw/svm-hw.zip">Zip</a>（4.4MB）</p>
 
     <!-- <h2 id="致谢">致谢</h2>
     <ul>
