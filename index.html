@@ -46,7 +46,17 @@
         <li><a href="#hinge-div">Hinge Loss导数表</a></li>
         <li><a href="#sgd">随机和Batch梯度下降</a></li>
       </ul>
-
+      <li>贝叶斯模型</li>
+      <ul>
+        <li><a href="#bayesrule">贝叶斯推断</a></li>
+        <li><a href="#condindep">条件独立</a></li>
+        <li><a href="#textc">文本分类</a></li>
+        <li><a href="#nbayes">朴素贝叶斯模型</a></li>
+        <li><a href="#curse">维数诅咒</a></li>
+        <li><a href="#skill">应用技巧</a></li>
+        <li><a href="#bnet">贝叶斯网络</a></li>
+        <li><a href="#marblanket">马尔科夫毯</a></li>
+      </ul>
       </ol>
 
     <!-- == -->
@@ -160,6 +170,76 @@
     <p><a href="https://www.bilibili.com/video/BV1sT4y1M7pV/">B站视频</a></p>
 
     <p>练习：<a href="hw/hw4.pdf">PDF</a>（274KB），<a href="hw/svm-hw.zip">Zip</a>（4.4MB）</p>
+
+  <h2>D. 贝叶斯推断</h2>
+
+    <p><a href="ppt/12-bayes.pptx">PPT</a>（14.4MB）</p>
+
+    <h3><a name="bayesrule">十六、贝叶斯推断</a></h3>
+
+    <p>
+      贝叶斯推断能基于收集到的证据，对特定假设的概率进行估计，比如“昨天是不是下雨了？”。它是统计机器学习的基石，因此是人工智能和机器学习的核心概念。本节通过讲解和举例，带大家理解贝叶斯推断的内涵。快来看看吧。
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV1H64y1f7wr/">B站视频</a></p>
+
+    <h3><a name="condindep">十七、条件独立</a></h3>
+
+    <p>本节介绍如何综合考虑多个证据，对特定假设的概率进行估计。为此，朴素贝叶斯分类器引入了条件独立。条件独立让贝叶斯分类变得简单、可扩展，性能还特别好。快来看看吧。
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV1Cy4y1v73H/">B站视频</a></p>
+
+    <h3><a name="textc">十八、文本分类</a></h3>
+
+    <p>朴素贝叶斯分类特别适合文本分类。本节通过示例，带大家完成自己的第一个贝叶斯文本分类器。这一方法非常实用，请一定要掌握哦。
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV1gK4y1L7wu/">B站视频</a></p>
+
+    <h3><a name="nbayes">十九、朴素贝叶斯模型</a></h3>
+
+    <p>本节首先介绍朴素贝叶斯文本分类的数学模型，然后介绍机器学习的生成模型和判别模型基本概念，指出朴素贝叶斯模型是一个生成模型，这是它不同于感知机、支持向量机的地方。我们然后给出完整的朴素贝叶斯文本分类模型，包括对零概率的处理。这是我们第一次接触统计机器学习模型。模型的魅力是无穷的。快来看看吧。
+
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV1UA411W7C2/">B站视频</a></p>
+
+    <h3><a name="curse">二十、维数诅咒</a></h3>
+
+    <p>本节基于客户流失分类的例子，讲解我们在机器学习中经常遇到的一个非常重要的问题：维数诅咒，即：特征使用越多，数据越稀疏，导致分类器参数的精确估计变得更加困难。然后我们说明朴素贝叶斯是如何解决这个问题。这是一个理解维数诅咒的特别好的例子，快来看看吧。
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV1ia411F7iH/">B站视频</a></p>
+
+    <h3><a name="skill">二十一、应用技巧</a></h3>
+
+    <p>本节介绍在实际中运用朴素贝叶斯分类方法中可能遇到的两个问题：1）两种类别的先验概率极不平衡；2）连续变量，时的处理方法。这些方法在实际中非常有用。快来看看吧。
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV1ep4y1z7jG/">B站视频</a></p>
+
+    <h3><a name="bnet">二十二、贝叶斯网络</a></h3>
+
+    <p>贝叶斯网络能够将我们对世界的理解，特别是对各种关系的理解，引入机器学习模型。这个优点非常重要，因为我们特别希望我们的机器学习模型是能够解释，是符合我们理解的世界的规律的。我们前面学过的朴素贝叶斯分类器就是贝叶斯网络中的一种。本节通过讲解和举例，带大家理解并掌握贝叶斯网络。本节内容十分重要，请一定要掌握哦。
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV17T4y1M7JJ/">B站视频</a></p>
+
+    <h3><a name="marblanket">二十三、马尔科夫毯</a></h3>
+
+    <p>本节分析几种贝叶斯网络中常见的元素关系的独立和条件独立，然后给出马尔科夫毯的概念。马尔科夫毯能帮助我们在一个贝叶斯网络中，定位和我们想要推断的元素的相关元素，因此展开测量和模型。本节内容十分重要。快来看看吧。
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV14T4y1M7Nt/">B站视频</a></p>
+
+    <!-- <h3><a name="">十、</a></h3>
+
+    <p>
+
+    </p>
+
+    <p><a href="">B站视频</a></p> -->
 
     <!-- <h2 id="致谢">致谢</h2>
     <ul>
