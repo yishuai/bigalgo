@@ -71,6 +71,17 @@
         <li><a href="#cf">协同过滤</a></li>
         <li><a href="#netflix">Netflix推荐大赛</a></li>
        </ul>
+       <li>通过实验学习</li>
+       <ul>
+        <li><a href="#experi">通过试验学习</a></li>
+        <li><a href="#mab">多臂老虎机模型</a></li>
+        <li><a href="#regret">老虎机的悔恨</a></li>
+        <li><a href="#explore">探索与利用</a></li>
+        <li><a href="#epsilon">epsilon-贪心算法</a></li>
+        <li><a href="#ucb">UCB 算法</a></li>
+        <li><a href="#contextual">上下文老虎机</a></li>
+        <li><a href="#linucb">LinUCB 算法</a></li>
+      </ul>
       </ol>
 
     <!-- == -->
@@ -309,33 +320,70 @@
 
     <p><a href="https://www.bilibili.com/video/BV1GK4y1L7Bm/">B站视频</a></p>
 
-    <h3><a name="">十、</a></h3>
+    <h3><a name="experi">三十二、通过试验学习</a></h3>
 
-    <p>
+    <p>当你走进一个游戏厅，面对一排老虎机，是不是有一丝茫然：怎么玩才是最优的呢？这是一个通过实验进行学习的问题。本节介绍这一问题的基本概念和应用场景，你会发现原来它这么有用啊。快来看看吧。
     </p>
 
-    <p><a href="">B站视频</a></p>
+    <p><a href="https://www.bilibili.com/video/BV1TZ4y137i6/">B站视频</a></p>
 
-    <h3><a name="">十、</a></h3>
+    <h3><a name="mab">三十三、多臂老虎机模型</a></h3>
 
-    <p>
+    <p>本节介绍多臂老虎机（MAB）问题的模型。它是“通过实验学习”这一问题的经典模型。这个模型非常有趣，快来看看吧。
     </p>
 
-    <p><a href="">B站视频</a></p>
+    <p><a href="https://www.bilibili.com/video/BV1qa4y1H7Vr/">B站视频</a></p>
 
-    <h3><a name="">十、</a></h3>
+    <h3><a name="regret">三十四、老虎机的悔恨</a></h3>
 
-    <p>
+    <p>本节首先介绍多臂老虎机的性能评估指标：悔恨。这是通过试验学习特有的一个性能指标，非常有趣，也非常有道理。你一定会喜欢的。本节然后定义什么是多臂老虎机问题的最优策略。它非常深刻，很有意思，快来看看吧。
     </p>
 
-    <p><a href="">B站视频</a></p>
+    <p><a href="https://www.bilibili.com/video/BV1wK411G7zP/">B站视频</a></p>
 
-    <h3><a name="">十、</a></h3>
+    <h3><a name="explore">三十五、探索与利用</a></h3>
 
     <p>
+      通过实验学习的核心问题是：如何平衡“探索未知”和“利用已知”。这是决策制定中的经典难题。对这个问题的讨论，可能会给你带来极大的启发，改变你的人生！快来看看吧。
     </p>
 
-    <p><a href="">B站视频</a></p>
+    <p><a href="https://www.bilibili.com/video/BV1y64y1f7j5/">B站视频</a></p>
+
+    <h3><a name="epsilon">三十六、epsilon-贪心算法</a></h3>
+
+    <p>本节介绍基于实验的学习的一个简单解法方法：epsilon-贪心算法。它会随着时间的增长，慢慢减少探索，增加利用。它可是一种最优算法哦：采用该算法，你最终会找到最优的老虎机。快来看看吧。
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV1o5411G7GK/">B站视频</a></p>
+
+    <h3><a name="ucb">三十七、UCB 算法</a></h3>
+
+    <p> UCB（置信区间上界）算法会选择置信区间上界最大的老虎机。这一方法既探索了未知，又利用了已知，让人拍案叫绝，成为目前应用最广泛的通过试验学习的算法。它也是一种最优算法：采用该算法，你最终会找到最优的老虎机。快来看看吧。
+
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV1Q54y1477k/">B站视频</a></p>
+
+    <h3><a name="contextual">三十八、上下文老虎机</a></h3>
+
+    <p> 上下文老虎机（Contextual Bandit）允许你在做决策时，考虑此时情境。比如在推荐新闻时，考虑读者的喜好。这实在是太强大了，快来看看吧。
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV17K411G7Tr/">B站视频</a></p>
+
+    <h3><a name="linucb">三十九、LinUCB 算法</a></h3>
+
+    <p>本节介绍经典的 Contextual Bandit 算法：LinUCB。它假设决策的回报是情境变量的线性加权和，即线性回归模型，然后基于用户的选择，不断更新每个老虎机的回报模型，同时也按照UCB算法，选出回报置信区间上界最大的老虎机。此外，研究人员还提出了一种新的用户降维方法，很有意思。快来看看吧。
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV15z4y1r7Ag/">B站视频</a></p>
+
+    <h3><a name="end">四十、结课</a></h3>
+
+    <p>恭喜大家完成了大数据机器学习的内容。致敬。再会！
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV1YV411h77D/">B站视频</a></p>
 
     <!-- <h2 id="致谢">致谢</h2>
     <ul>
