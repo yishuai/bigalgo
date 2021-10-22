@@ -445,9 +445,81 @@
       <ul>
         <li>文本处理，<a href="http://www.stanford.edu/class/cs124/lec/2_TextProc_Mar_25_2021.pptx">PPT</a>（3.6MB）</li>
         <li>常用命令行工具，<a href="http://www.stanford.edu/class/cs124/lec/124-2021-UnixForPoets.pptx">PPT</a>（400KB） </li>
-      </ul></p>
+        <li>SLP课本第2章：正则表达式、文本预处理、编辑距离，<a href="https://web.stanford.edu/~jurafsky/slp3/2.pdf">PDF</a></li>
+      </ul>
+    </p>
 
-    <h3><a name="end">四十一、结课</a></h3>
+    <h3><a name="text">四十一、语言模型</a></h3>
+
+    <p>
+      本节介绍大数据文本处理的基础模型：语言模型，包括：链式规则，马尔科夫近似，n-gram模型，最大似然估计，句子概率计算，基于语言模型的文本困惑度评估和文本生成，加1-拉普拉斯平滑，基于交织的Kneser-Ney方法，适用于大数据的Stupid
+      Backoff方法。
+    </p>
+
+    <p><a href=""></a></a></p>
+    <p>斯坦福 Dan Jurafsky 教授材料
+    <ul>
+      <li>语言模型，<a href="http://www.stanford.edu/class/cs124/lec/lm2021.pptx">PPT</a>（3.9MB）</li>
+      <li>SLP课本第3章：N-gram 语言模型，<a href="https://web.stanford.edu/~jurafsky/slp3/3.pdf">PDF</a></li>
+      <li>演示网站：<a href="https://transformer.huggingface.co/doc/distil-gpt2">GPT2文本生成</a></li>
+      <li>演示网站：<a href="https://gpt3demo.com/">基于GPT3的各种应用，如代码生成</a></li>
+    </ul>
+    </p>
+
+    <h3><a name="text">四十二、词性标注与命名实体识别</a></h3>
+
+    <p> 本节介绍词性标注（POS）与命名实体识别（NER）的基本概念。
+    </p>
+
+    <p><a href=""></a></a></p>
+    <p>斯坦福 Dan Jurafsky 教授材料
+    <ul>
+      <li>词性标注与命名实体识别，<a href="http://www.stanford.edu/class/cs124/lec/8_POSNER_intro_May_6_2021.pptx">PPT</a>（2.5MB）</li>
+      <li>SLP课本第8章：序列标签任务 POS 与 NER，<a href="https://web.stanford.edu/~jurafsky/slp3/8.pdf">PDF</a> </li>
+      <li>图书：Introduction to Chinese Natural Language Processing，2010</li>
+    </ul>
+    </p>
+
+    <h3><a name="text">四十三、向量语义与Embedding</a></h3>
+
+    <p> 本节从两个方面探索单词的意义。
+
+      <ul>
+        <li>语义学方面，介绍单词之间的关系，包括：同义、反义、相似、相关、含义</li>
+        <li>向量语义，基于单词的语言学分布（如：经常一起出现的单词）来定义单词的意义，其中：：</li>
+        <li>TF-IDF（或 PMI）向量方法，向量很长，稀疏</li>
+        <li>word2vec 方法，Skip-Gram，变成分类问题，类似 Logistic Regression，用梯度下降法优化。它得到的表征，短，密。特别是：</li>
+        <ul>
+          <li>和选择的窗口有关：如果窗口较小，则单词表征主要体现两个单词的语法相似；如果窗口较大，则体现两个单词出现的相关</li>
+          <li>基于平行四边形方法的单词表征类比性质评估方法，仅对频繁词、短距离、少量关系有效。应用时应谨慎。</li>
+        </ul>
+      </ul>
+    </p>
+
+    <p><a href=""></a></a></p>
+    <p>斯坦福 Dan Jurafsky 教授材料
+    <ul>
+      <li>向量语义与表征，<a href="http://www.stanford.edu/class/cs124/lec/week4_vectorsemantics2021.pptx">PPT</a>（2.5MB）</li>
+      <li>SLP课本第6章：向量语义与表征，<a href="https://web.stanford.edu/~jurafsky/slp3/6.pdf">PDF</a> </li>
+    </ul>
+    </p>
+
+    <h3><a name="text">四十四、Logistic 回归 和 神经元网络</a></h3>
+
+    <p> 本节介绍 Logistic 回归（LR）和 神经元网络（NN）的基本概念。
+    </p>
+
+    <p><a href=""></a></a></p>
+    <p>斯坦福 Dan Jurafsky 教授材料
+    <ul>
+      <li>Logistic 回归，<a href="http://www.stanford.edu/class/cs124/lec/logisticregression2021.pptx">PPT</a>（14MB）</li>
+      <li>SLP课本第5章：Logistic 回归，<a href="https://web.stanford.edu/~jurafsky/slp3/5.pdf">PDF</a> </li>
+      <li>神经元网络，<a href="http://www.stanford.edu/class/cs124/lec/7_NN.pptx">PPT</a>（15MB）</li>
+      <li>SLP课本第7章：神经元网络，<a href="https://web.stanford.edu/~jurafsky/slp3/7.pdf">PDF</a></li>
+    </ul>
+    </p>
+
+    <h3><a name="end">结课</a></h3>
 
     <p>恭喜大家完成了大数据机器学习的内容。致敬。再会！
     </p>
@@ -474,10 +546,14 @@
       <ul>
         <li>推荐系统英文阅读与书评，<a href="https://docs.qq.com/doc/DT010WHljRVhlVUhV">腾讯文档</a> </li>
         <li>代码分析与运行，<a href="https://docs.qq.com/doc/DT1NpRUZFZXpkdW5M">腾讯文档</a> </li>
+        <li>梯度下降优化，<a href="https://docs.qq.com/doc/DT01ZaXpsck5IblJp">腾讯文档</a>
+        </li>
       </ul>
       <li>第一阶段</li>
       <ul>
         <li>信息提取和合作过滤，<a href="https://docs.qq.com/doc/DT3hydFFLelJWZGNX">腾讯文档</a> </li>
+        <li>Python机器学习编程基础，<a href="https://docs.qq.com/doc/DT2JmR21qTkNxekpu">腾讯文档</a></li>
+        <li>用户需求和喜好感知, <a href="https://docs.qq.com/doc/DT1RHbVV4R1NqTVpt">腾讯文档</a></li>
       </ul>
     </ol>
     </p>
