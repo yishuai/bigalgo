@@ -95,7 +95,8 @@
         <li><a href="#pos-ner">词性标注与命名实体识别</a></li>
         <li><a href="#emb">向量语义与Embedding</a></li>
         <li><a href="#lr-nn">Logistic 回归 和 神经元网络</a></li>
-        <li><a href="#transformer">Transformer、BERT、GPT</a></li>
+        <li><a href="#transformer">Transformer</a></li>
+        <li><a href="#pretrain">预训练模型</a></li>
         </ul>
         <li>文本算法</li>
         <ul>
@@ -516,11 +517,17 @@
     <p>
       本节介绍大数据文本处理实用技术，包括文本处理流程，n-gram，TF-IDF，LDA的基本代码实验和范例代码。
     </p>
+
     <p>学习材料</p>
     <ol>
       <li>Rayid Ghani，芝加哥大学，Text Analytics 101，<a href="ppt/17-text/text_analytics_rayid.pdf">PDF</a>
-      <li>实验：卡耐基梅隆大学，社会公益数据科学实验室，社会公益数据科学搭便车指南，第二课，文本分析部分，<a
-          href="https://github.com/dssg/hitchhikers-guide/tree/master/sources/curriculum/2_data_exploration_and_analysis/text-analysis">Github代码</a>，文本特征提取，主题模型
+      </li>
+    </ol>
+
+    <p>练习</p>
+    <ol>
+      <li>卡耐基梅隆大学，社会公益数据科学实验室，社会公益数据科学搭便车指南，第二课，文本分析部分，<a
+        href="https://github.com/dssg/hitchhikers-guide/tree/master/sources/curriculum/2_data_exploration_and_analysis/text-analysis">Github代码</a>，文本特征提取，主题模型
       </li>
     </ol>
 
@@ -569,26 +576,24 @@
     <h3><a name="emb">四十三、向量语义与Embedding</a></h3>
 
     <p> 本节从两个方面探索单词的意义：
+    <p>语义学方面，介绍单词之间的关系，包括：</p>
+    <ul>
+      <li>同义</li>
+      <li>反义</li>
+      <li>相似</li>
+      <li>相关</li>
+      <li>含义</li>
+    </ul>
+    <p>向量语义：基于单词的语言学分布（如：经常一起出现的单词）来定义单词的意义，包括：</p>
+    <ul>
+      <li>TF-IDF（或 PMI）词向量：向量长，稀疏</li>
+      <li>Word2vec 词向量：向量短，密</li>
       <ul>
-        <li>语义学方面，介绍单词之间的关系，包括：</li>
-        <ul>
-          <li>同义</li>
-          <li>反义</li>
-          <li>相似</li>
-          <li>相关</li>
-          <li>含义</li>
-        </ul>
-        <li>向量语义：基于单词的语言学分布（如：经常一起出现的单词）来定义单词的意义，包括：</li>
-        <ul>
-          <li>TF-IDF（或 PMI）词向量：向量长，稀疏</li>
-          <li>Word2vec 词向量：向量短，密</li>
-          <ul>
-            <li>实现方法：Skip-Gram，变成分类问题，类似 Logistic Regression 建模，梯度下降法优化</li>
-            <li>结果和窗口长度有关：窗口小，单词表征体现两个单词的语法相似；窗口大，体现两个单词出现的相关</li>
-            <li>注意：基于平行四边形方法的类比评估方法，仅对频繁词、短距离、少量关系有效，应用时应谨慎。</li>
-          </ul>
-        </ul>
+        <li>实现方法：Skip-Gram，变成分类问题，类似 Logistic Regression 建模，梯度下降法优化</li>
+        <li>结果和窗口长度有关：窗口小，单词表征体现两个单词的语法相似；窗口大，体现两个单词出现的相关</li>
+        <li>注意：基于平行四边形方法的类比评估方法，仅对频繁词、短距离、少量关系有效，应用时应谨慎。</li>
       </ul>
+    </ul>
     </p>
 
     <p><a href=""></a></a></p>
