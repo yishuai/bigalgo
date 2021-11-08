@@ -107,7 +107,16 @@
         <li><a href="#hmm">序列文本学习(HMM)</a></li>
         <li><a href="#crf">结构化预测(CRF)</a></li>
         <li><a href="#nntxt">深度文本处理技术</a></li>
-       </ul>
+        </ul>
+        <li>图算法</li>
+        <ul>
+          <li><a href="#gnnemb">Shallow 节点表征</a></li>
+          <li><a href="#gnnlabel">标签传播和节点分类</a></li>
+          <li><a href="#gnn">GNN</a></li>
+          <li><a href="#gnnskill">训练技巧</a></li>
+          <li><a href="#gnnkg">KG 知识图表征和推理</a></li>
+          <li><a href="#gnnrec">GNN 推荐</a></li>
+        </ul>
       <li>实验</li>
       <ul>
         <li><a href="#python">Python入门</a></li>
@@ -1163,6 +1172,215 @@
         <li>RNN模型：PyTorch版本</li>
       </ol>
   </ol>
+
+    <h2>H. 图算法</h2>
+
+    <h3><a name="gnnemb">H.1 Shallow 节点表征</a></h3>
+
+    <p> 本节介绍Shallow 节点表征，它仅利用节点的拓扑关系，学习节点表征</p>
+    <h4> 内容 </h4>
+    <ol>
+      <li>利用节点拓扑关系定义节点相似（如：相连的两个节点应该相似），以此训练节点表征（如：两个相似节点的表征的Cos相似应该较大）
+      <li>Encoder 是 简单查表</li>
+      <li> 随机游走 </li>
+      <ul>
+        <li>Negative sampling</li>
+        <li>无偏游走：DeepWalk</li>
+        <li>有偏游走：node2vec，平衡 BFS 和 DFS</li>
+      </ul>
+      <li>图表征方法</li>
+      <ul>
+        <li>节点平均</li>
+        <li>超级节点</li>
+        <li>基于Walk</li>
+      </ul>
+    </ol>
+
+    <h4>材料</h4>
+    <ul>
+      <li>斯坦福 CS224W 节点表征，<a href="http://web.stanford.edu/class/cs224w/slides/03-nodeemb.pdf">PDF</a>
+      </li>
+    </ul>
+
+    <h4>实验</h4>
+    <ul>
+      <li>节点表征和链路预测： <a href="https://docs.qq.com/doc/DT0FFT1hrYlVyVHlr">腾讯文档</a></li>
+    </ul>
+
+    <h3><a name="gnnlabel">H.2 标签传播和节点分类</a></h3>
+
+    <p> 已知少数节点的类别，利用“连接的节点相似”这一点，进行“标签传播”，得到其它节点类别</p>
+
+    <h4> 方法 </h4>
+    <ul>
+      <li>邻居类别概率加权求和</li>
+      <li>训练分类器，利用节点属性和邻居节点标签，进行分类</li>
+      <ul>
+        <li>先用节点属性，得到 base 分类</li>
+        <li>计算 邻居节点 标签的 summary，迭代分类</li>
+        <li>更正和平滑：用 ground truth节点的模型误差和标签，进行校正</li>
+      </ul>
+    </ul>
+
+    <h4>材料</h4>
+    <ul>
+      <li>斯坦福 CS224W 标签传播和节点分类，<a href="http://web.stanford.edu/class/cs224w/slides/05-message.pdf">PDF</a></li>
+    </ul>
+
+    <h3><a name="gnn">H.3 GNN</a></h3>
+
+    <p> Shallow 节点表征模型没有用上节点feature，不能扩展到没见过的节点。GNN模型能够利用节点特征，得到表达能力更强的模型</p>
+
+    <h4> 方法 </h4>
+    <ul>
+      <li>输入：节点特征 X</li>
+      <li>方法</li>
+      <ul>
+        <li>Message Propagation</li>
+        <li>Aggregation</li>
+      </ul>
+      <li>模型</li>
+      <li>GCN：sigmoid(w*h)</li>
+      <li>GraphSAGE: sigmoid(w, h, agg(h))</li>
+      <ul>
+        <li>agg 可以是 mean, pool, LSTM</li>
+        <li>l2 normalization</li>
+      </ul>
+      <li>GAT：多头 attention 机制</li>
+      <li>实用方法: Batch Normalization， Dropout， Skip connection</li>
+      </ul>
+    </ul>
+
+    <h4>材料</h4>
+    <ul>
+      <li>斯坦福 CS224W 搭建GNN模型，<a href="http://web.stanford.edu/class/cs224w/slides/06-GNN1.pdf">PDF 1</a>，<a href="http://web.stanford.edu/class/cs224w/slides/07-GNN2.pdf">PDF 2</a></li>
+    </ul>
+
+    <h4>实验</h4>
+    <ul>
+      <li>图分析和节点分类（GCN），<a href="https://docs.qq.com/doc/DT0JQend4SXZhdmZt">腾讯文档</a> </li>
+      <li>深度图神经元网络（GCN + Batch Normalization， Dropout）<a href="https://docs.qq.com/doc/DT0htQWdPek1IU2dC">腾讯文档</a> </li>
+      <li>GraphSAG + GAT 图注意力机制，<a href="https://docs.qq.com/doc/DT2ZiT1FIZ0J5anBS">腾讯文档</a> </li>
+    </ul>
+
+    <h3><a name="gnnskill">H.4 训练技巧</a></h3>
+
+    <p>GNN训练起来不容易。本节介绍各种实用技巧</p>
+
+    <ul>
+      <li>加节点特征</li>
+      <ul>
+        <li>GNN 不能识别一些图特征，所以，手工 加 图特征，如 cycle 数</li>
+      </ul>
+      <li>加边</li>
+        <ul>
+          <li>两跳连边，改善稀疏</li>
+        </ul>
+      <li>加节点</li>
+        <ul>
+          <li>改善消息传播</li>
+        </ul>
+      <li>邻居采样</li>
+        <ul>
+          <li>降低计算量</li>
+        </ul>
+      <li>数据 Split</li>
+        <ul>
+          <li>根据问题的特点，采用特定的训练集、验证集、测试集的划分方法</li>
+        </ul>
+      <li>Debug 技巧</li>
+        <ul>
+          <li>初始化，激活函数等</li>
+        </ul>
+    </ul>
+
+    <h4>材料</h4>
+    <ul>
+      <li>斯坦福 CS224W 模型训练技巧，<a href="http://web.stanford.edu/class/cs224w/slides/08-GNN-application.pdf">PDF</a></li>
+    </ul>
+
+    <h3><a name="gnnkg">H.5 KG 知识图表征和推理</a></h3>
+
+    <p> 学习 KG，根据 Head 实体 + 关系，预测 Tail 实体</p>
+
+    <h4> 方法 </h4>
+    <ul>
+      <li>KG 是一种Heterogeneous 异质 图</li>
+      <ul>
+        <li>多种节点</li>
+        <li>多种关系</li>
+        <li>entity， relation 都 用 shallow embedding</li>
+        <li>通过 字典学习，降低 关系 W 的参数数目</li>
+      </ul>
+      <li>应用：KG 完成</li>
+      <ul>
+        <li>根据 head, relation 补上 tail</li>
+        <li>如：根据 “J.K. Rowling”, “genre” 补上 “Science Fiction”)</li>
+        <li>方法</li>
+        <ul>
+          <li>TransE：head + relation -> tail</li>
+          <li>TransR：M * head + relation -> M * tail</li>
+          <li>DistMult：head * relation * tail</li>
+          <li>ComplEx：复向量空间</li>
+          <li>如果没有很多 对称关系的话，一般用 TransE，然后试试 ComplEx</li>
+        </ul>
+      </ul>
+      <li>应用：基于 Embedding 的 KG 推理</li>
+      <ul>
+        <li>Path query</li>
+        <ul>
+          <li>如：A导致的症状，和哪些 protein 蛋白质 有关？</li>
+          <li>扩展 TransE，变成 embedding 的向量运算</li>
+          <li>head + relation1 + relation2 -> tail</li>
+        </ul>
+        <li>Conjunctive query 连接查询</li>
+        <ul>
+          <li>如：能治疗A，但会导致B的药有哪些？</li>
+          <li>即：要求 “导致 B 的” 和 “治疗A的” 的交集</li>
+          <li>Query2Box</li>
+          <ul>
+            <li>Projection 投影 操作符</li>
+            <li>Box intersection 操作符</li>
+          </ul>
+        </ul>
+      </ul>
+    </ul>
+
+    <p>材料</p>
+    <ul>
+      <li>斯坦福 CS224W KG 表征，<a href="http://web.stanford.edu/class/cs224w/slides/10-kg.pdf">PDF</a></li>
+      <li>斯坦福 CS224W KG 推理，<a href="http://web.stanford.edu/class/cs224w/slides/11-reasoning.pdf">PDF</a></li>
+    </ul>
+
+    <h3><a name="gnnrec">H.6 GNN 推荐</a></h3>
+
+    <p> 用户-Item图的推荐</p>
+
+    <h4> 方法 </h4>
+    <ul>
+      <li>NGCF</li>
+      <ul>
+        <li>Shallow 用户/Item 表征</li>
+        <li>计算 用户 - Item 表征 Cos 相似，进行匹配</li>
+      </ul>
+      <li>LightGCN</li>
+      <ul>
+        <li>节点数很大时，GCN的参数信息量不大，用户/Item 表征 已经非常 expressive 了</li>
+        <li>去掉 非线性，直接 矩阵 Diffusion</li>
+        <li>类似 更正 和 平滑</li>
+      </ul>
+      <li>PinSAGE：图片，为了适应大数据，可扩展，进行了特别设计</li>
+      <ul>
+        <li>Curriculum learning：先送容易的样本，再送难的</li>
+      </ul>
+    </ul>
+
+    <h4>材料</h4>
+    <p>斯坦福 CS224W GNN 推荐，<a href="http://web.stanford.edu/class/cs224w/slides/13-recsys.pdf">PDF</a></p>
+
+    <h3><a name="python">A. Python入门</a></h3>
+
+    <p>王一行，《Python基础指南》，<a href="exercise/python.docx">Docx, 1.6MB</a></p>
 
     <h3><a name="end">结课</a></h3>
 
