@@ -895,7 +895,7 @@
     <li>两个特点：</li>
     <ol>
       <li>它比较的是 P(x,y)，不是上面提到的 P(Y|X) </li>
-      <li>它通过条件独立假设，减化 P(X|Y) 的计算</li>
+      <li>它通过条件独立假设，简化 P(X|Y) 的计算</li>
     </ol>
     <li>例：第71页-78页</li>
   </ol>
@@ -1077,7 +1077,7 @@
     <li>和 HMM 不同之处是</li>
     <ol>
       <li>HMM 模型 P(X,Y)，是 “生成模型”</li>
-      <li>它是“辨别模型”</li>
+      <li>CRF 的 P(Y|X) 是“辨别模型”</li>
     </ol>
     <li>我们学过的“辨别模型”包括：感知机，最大熵模型</li>
     <li>对分类问题，如 POS， NER，模型 P(Y|X) 更直接，效果可能更好</li>
@@ -1150,6 +1150,7 @@
   <h3><a name="nntxt">G.6 深度文本处理技术</a></h3>
 
   <p> 本节介绍深度文本处理技术</p>
+
   <h4> 内容 </h4>
   <ol>
     <li> 用 Log-Linear，MLP，RNN等模型进行文本分类和结构化预测</li>
@@ -1181,7 +1182,7 @@
     <h4> 内容 </h4>
     <ol>
       <li>利用节点拓扑关系定义节点相似（如：相连的两个节点应该相似），以此训练节点表征（如：两个相似节点的表征的Cos相似应该较大）
-      <li>Encoder 是 简单查表</li>
+      <li>Encoder 是 简单查表，用 nn.Embedding 实现</li>
       <li> 随机游走 </li>
       <ul>
         <li>Negative sampling</li>
@@ -1204,7 +1205,7 @@
 
     <h4>实验</h4>
     <ul>
-      <li>节点表征和链路预测： <a href="https://docs.qq.com/doc/DT0FFT1hrYlVyVHlr">腾讯文档</a></li>
+      <li>节点表征和链路预测，采用Loss函数：相邻节点表征的 Cos 相似： <a href="https://docs.qq.com/doc/DT0FFT1hrYlVyVHlr">腾讯文档</a></li>
     </ul>
 
     <h3><a name="gnnlabel">H.2 标签传播和节点分类</a></h3>
@@ -1218,18 +1219,19 @@
       <ul>
         <li>先用节点属性，得到 base 分类</li>
         <li>计算 邻居节点 标签的 summary，迭代分类</li>
-        <li>更正和平滑：用 ground truth节点的模型误差和标签，进行校正</li>
+        <li>Correct & Smooth (更正和平滑)：用 ground truth节点的模型误差和标签，进行校正</li>
       </ul>
     </ul>
 
     <h4>材料</h4>
     <ul>
       <li>斯坦福 CS224W 标签传播和节点分类，<a href="http://web.stanford.edu/class/cs224w/slides/05-message.pdf">PDF</a></li>
+      <li>Correct & Smooth 论文，ICLR 2021，Combining Label Propagation and Simple Models Out-performs Graph Neural Networks，<a href="https://arxiv.org/abs/2010.13993">论文</a>， <a href="https://github.com/CUAI/CorrectAndSmooth">Github</a>， <a href="https://pytorch-geometric.readthedocs.io/en/latest/_modules/torch_geometric/nn/models/correct_and_smooth.html">PyG 实现</a> </li>
     </ul>
 
     <h3><a name="gnn">H.3 GNN</a></h3>
 
-    <p> Shallow 节点表征模型没有用上节点feature，不能扩展到没见过的节点。GNN模型能够利用节点特征，得到表达能力更强的模型</p>
+    <p> Shallow 节点表征模型没有利用节点feature，不能扩展到没见过的节点。GNN模型利用节点特征，表达能力更强</p>
 
     <h4> 方法 </h4>
     <ul>
@@ -1240,6 +1242,7 @@
         <li>Aggregation</li>
       </ul>
       <li>模型</li>
+      <ul>
       <li>GCN：sigmoid(w*h)</li>
       <li>GraphSAGE: sigmoid(w, h, agg(h))</li>
       <ul>
@@ -1249,18 +1252,19 @@
       <li>GAT：多头 attention 机制</li>
       <li>实用方法: Batch Normalization， Dropout， Skip connection</li>
       </ul>
+      </ul>
     </ul>
 
     <h4>材料</h4>
     <ul>
-      <li>斯坦福 CS224W 搭建GNN模型，<a href="http://web.stanford.edu/class/cs224w/slides/06-GNN1.pdf">PDF 1</a>，<a href="http://web.stanford.edu/class/cs224w/slides/07-GNN2.pdf">PDF 2</a></li>
+      <li>斯坦福 CS224W GNN模型，<a href="http://web.stanford.edu/class/cs224w/slides/06-GNN1.pdf">PDF 1</a>，<a href="http://web.stanford.edu/class/cs224w/slides/07-GNN2.pdf">PDF 2</a></li>
     </ul>
 
     <h4>实验</h4>
     <ul>
-      <li>图分析和节点分类（GCN），<a href="https://docs.qq.com/doc/DT0JQend4SXZhdmZt">腾讯文档</a> </li>
-      <li>深度图神经元网络（GCN + Batch Normalization， Dropout）<a href="https://docs.qq.com/doc/DT0htQWdPek1IU2dC">腾讯文档</a> </li>
-      <li>GraphSAG + GAT 图注意力机制，<a href="https://docs.qq.com/doc/DT2ZiT1FIZ0J5anBS">腾讯文档</a> </li>
+      <li>图分析和节点分类，三层 GCNConv，<a href="https://docs.qq.com/doc/DT0JQend4SXZhdmZt">腾讯文档</a> </li>
+      <li>深度图神经元网络，自己实现 GNN layer，包括 GCNConv， Batch Normalization， Dropout， <a href="https://docs.qq.com/doc/DT0htQWdPek1IU2dC">腾讯文档</a> </li>
+      <li>实现 GraphSAG 和 GAT 图注意力机制，<a href="https://docs.qq.com/doc/DT2ZiT1FIZ0J5anBS">腾讯文档</a> </li>
     </ul>
 
     <h3><a name="gnnskill">H.4 训练技巧</a></h3>
@@ -1297,6 +1301,11 @@
     <h4>材料</h4>
     <ul>
       <li>斯坦福 CS224W 模型训练技巧，<a href="http://web.stanford.edu/class/cs224w/slides/08-GNN-application.pdf">PDF</a></li>
+      <li> 常用高级模型库，支持常见GNN模型 </li>
+      <ul>
+        <li> PyG：PyTorch Geometric（<a href="https://pytorch-geometric.readthedocs.io/en/latest/">网站</a>）</li>
+        <li> DGL：Deep Graph Library（<a href="https://www.dgl.ai/">网站</a>)，各种模型，如 NGCF（<a href="https://github.com/dmlc/dgl/tree/master/examples/pytorch">Github</a>）</li>
+      </ul>
     </ul>
 
     <h3><a name="gnnkg">H.5 KG 知识图表征和推理</a></h3>
@@ -1348,8 +1357,13 @@
 
     <p>材料</p>
     <ul>
-      <li>斯坦福 CS224W KG 表征，<a href="http://web.stanford.edu/class/cs224w/slides/10-kg.pdf">PDF</a></li>
-      <li>斯坦福 CS224W KG 推理，<a href="http://web.stanford.edu/class/cs224w/slides/11-reasoning.pdf">PDF</a></li>
+      <li>斯坦福 CS224W， KG 表征（<a href="http://web.stanford.edu/class/cs224w/slides/10-kg.pdf">PDF</a>），推理（<a href="http://web.stanford.edu/class/cs224w/slides/11-reasoning.pdf">PDF</a>)</li>
+      <li> 常用高级模型库，支持常见GNN-KG模型 </li>
+      <ul>
+        <li>Amazon DGL-KG，提供 TransE, TransR, RESCAL, DistMult, ComplEx, RotatE，<a href="https://github.com/awslabs/dgl-ke">Github</a></li>
+        <li>Facebook PyTorch-BigGraph，适合10万以上节点的图，不适合小规模图，<a href="https://github.com/facebookresearch/PyTorch-BigGraph">Github</a></li>
+        <li>Google SMORE，支持 BetaE, Query2box, GQE, RotatE, ComplEx, DistMult 在千万节点图上训练，<a href="https://github.com/google-research/smore">Github</a>   </li>
+      </ul>
     </ul>
 
     <h3><a name="gnnrec">H.6 GNN 推荐</a></h3>
@@ -1375,8 +1389,11 @@
       </ul>
     </ul>
 
-    <h4>材料</h4>
-    <p>斯坦福 CS224W GNN 推荐，<a href="http://web.stanford.edu/class/cs224w/slides/13-recsys.pdf">PDF</a></p>
+    <p>材料</p>
+    <ul>
+      <li>斯坦福 CS224W GNN 推荐，<a href="http://web.stanford.edu/class/cs224w/slides/13-recsys.pdf">PDF</a></li>
+      <li>LightGCN 推荐 PyTorch 实现，<a href="https://github.com/gusye1234/LightGCN-PyTorch">Github</a></li>
+    </ul>
 
     <h3><a name="python">A. Python入门</a></h3>
 
