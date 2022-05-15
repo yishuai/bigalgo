@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>从语言到信息</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+
+    <h1>从语言到信息</h1>
+
+    <p>陈一帅</p>
+
+    <p><a href="mailto:yschen@bjtu.edu.cn">yschen@bjtu.edu.cn</a></p>
+
+    <p>北京交通大学电子信息工程学院网络智能实验室</p>
+
+    <p>
+      北京交通大学《从语言到信息》课程，源自斯坦福大学 Dan Jurafsky 教授 CS124 《从语言到信息》，讲解自然语言信息处理和应用系统设计的基本原理和算法，一路下来，带大家在动手中，走上算法研发的职业道路。详细课程信息请访问：https://yishuai.github.io/bigalgo/nlp.html
+    </p>
+
+    <h3>目录</h3>
+    <ol>
+      <li><a href="#text">文本处理</a></li>
+      <li><a href="#lda">文本分析</a></li>
+      <li><a href="#lm">语言模型</a></li>
+      <li><a href="#pos-ner">词性标注与命名实体识别</a></li>
+      <li><a href="#emb">向量语义与Embedding</a></li>
+      <li><a href="#lr-nn">Logistic 回归 和 神经元网络</a></li>
+      <li><a href="#transformer">Transformer</a></li>
+      <li><a href="#pretrain">预训练模型</a></li>
+      <li><a href="#dialog">对话系统</a></li>
+      <li><a href="#chatbot">实验：电影推荐对话机器人</a></li>
+      </ol>
+
+
+    <h2>一、文本智能</h2>
+
+    <h3><a name="text">1.1 文本处理</a></h3>
+
+    <p> 本节介绍大数据文本处理的利器：
+      <ul>
+        <li>正则表达式</li>
+        <li>命令行工具，包括 tr, grep, sort, uniq 等</li>
+      </ul>
+      它们会让你在实际的工作中如虎添翼！
+    </p>
+
+    <p><a href=""></a></a></p>
+    <p>斯坦福 Dan Jurafsky 教授材料
+      <ul>
+        <li>文本处理，<a href="http://www.stanford.edu/class/cs124/lec/2_TextProc_Mar_25_2021.pptx">PPT</a>（3.6MB）</li>
+        <li>常用命令行工具，<a href="http://www.stanford.edu/class/cs124/lec/124-2021-UnixForPoets.pptx">PPT</a>（400KB） </li>
+        <li>SLP课本第2章：正则表达式、文本预处理、编辑距离，<a href="https://web.stanford.edu/~jurafsky/slp3/2.pdf">PDF</a></li>
+      </ul>
+    </p>
+
+    <p>对话推荐系统练习
+    <ol>
+      <li>基本文本信息提取、用户情感感知、合作过滤，<a href="https://docs.qq.com/doc/DT3hydFFLelJWZGNX">腾讯文档</a> </li>
+    </ol>
+    </p>
+
+    <h3><a name="lda">1.2 文本分析</a></h3>
+    <p>
+      本节介绍大数据文本处理实用技术，包括文本处理流程，n-gram，TF-IDF，LDA的基本代码实验和范例代码。
+    </p>
+
+    <p>学习材料</p>
+    <ol>
+      <li>Rayid Ghani，芝加哥大学，Text Analytics 101，<a href="ppt/17-text/text_analytics_rayid.pdf">PDF</a>
+      </li>
+    </ol>
+
+    <p>练习</p>
+    <ol>
+      <li>卡耐基梅隆大学，社会公益数据科学实验室，社会公益数据科学搭便车指南，第二课，文本分析部分，<a
+        href="https://github.com/dssg/hitchhikers-guide/tree/master/sources/curriculum/2_data_exploration_and_analysis/text-analysis">Github代码</a>，文本特征提取，主题模型
+      </li>
+    </ol>
+
+    <h3><a name="lm">1.3、语言模型</a></h3>
+
+    <p>
+      本节介绍大数据文本处理的基础模型：语言模型，包括：
+      <ul>
+        <li>链式规则，马尔科夫近似</li>
+        <li>n-gram模型，最大似然估计，句子概率计算</li>
+        <li>基于语言模型的文本困惑度评估和文本生成</li>
+        <li>三种平滑方法及其适用场景</li>
+        <ul>
+          <li>加1-拉普拉斯平滑</li>
+          <li>基于交织的Kneser-Ney方法</li>
+          <li>适用于大数据的Stupid
+          Backoff方法</li>
+        </ul>
+      </ul>
+    </p>
+
+    <p><a href=""></a></a></p>
+    <p>斯坦福 Dan Jurafsky 教授材料
+    <ul>
+      <li>语言模型，<a href="http://www.stanford.edu/class/cs124/lec/lm2021.pptx">PPT</a>（3.9MB）</li>
+      <li>SLP课本第3章：N-gram 语言模型，<a href="https://web.stanford.edu/~jurafsky/slp3/3.pdf">PDF</a></li>
+      <li>演示网站：<a href="https://transformer.huggingface.co/doc/distil-gpt2">GPT2文本生成</a></li>
+      <li>演示网站：<a href="https://gpt3demo.com/">基于GPT3的各种应用，如代码生成</a></li>
+    </ul>
+    </p>
+
+    <h3><a name="pos-ner">1.4 词性标注与命名实体识别</a></h3>
+
+    <p> 本节介绍词性标注（POS）与命名实体识别（NER）的基本概念。
+    </p>
+
+    <p><a href=""></a></a></p>
+    <p>斯坦福 Dan Jurafsky 教授材料
+    <ul>
+      <li>词性标注与命名实体识别，<a href="http://www.stanford.edu/class/cs124/lec/8_POSNER_intro_May_6_2021.pptx">PPT</a>（2.5MB）</li>
+      <li>SLP课本第8章：序列标签任务 POS 与 NER，<a href="https://web.stanford.edu/~jurafsky/slp3/8.pdf">PDF</a> </li>
+      <li>图书：Introduction to Chinese Natural Language Processing，2010</li>
+    </ul>
+    </p>
+
+    <h3><a name="emb">1.5 向量语义与Embedding</a></h3>
+
+    <p> 本节从两个方面探索单词的意义：
+    <p>语义学方面，介绍单词之间的关系，包括：</p>
+    <ul>
+      <li>同义</li>
+      <li>反义</li>
+      <li>相似</li>
+      <li>相关</li>
+      <li>含义</li>
+    </ul>
+    <p>向量语义：基于单词的语言学分布（如：经常一起出现的单词）来定义单词的意义，包括：</p>
+    <ul>
+      <li>TF-IDF（或 PMI）词向量：向量长，稀疏</li>
+      <li>Word2vec 词向量：向量短，密</li>
+      <ul>
+        <li>实现方法：Skip-Gram，变成分类问题，类似 Logistic Regression 建模，梯度下降法优化</li>
+        <li>结果和窗口长度有关：窗口小，单词表征体现两个单词的语法相似；窗口大，体现两个单词出现的相关</li>
+        <li>注意：基于平行四边形方法的类比评估方法，仅对频繁词、短距离、少量关系有效，应用时应谨慎。</li>
+      </ul>
+    </ul>
+    </p>
+
+    <p><a href=""></a></a></p>
+    <p>斯坦福 Dan Jurafsky 教授材料
+    <ul>
+      <li>向量语义与表征，<a href="http://www.stanford.edu/class/cs124/lec/week4_vectorsemantics2021.pptx">PPT</a>（2.5MB）</li>
+      <li>SLP课本第6章：向量语义与表征，<a href="https://web.stanford.edu/~jurafsky/slp3/6.pdf">PDF</a> </li>
+    </ul>
+    </p>
+
+    <h3><a name="lr-nn">1.6 Logistic 回归 和 神经元网络</a></h3>
+
+    <p> 本节介绍 Logistic 回归（LR）和 神经元网络（NN）的基本概念，包括：
+      <ul>
+        <li>Discriminative 概率分类模型 P(c|d) 的基本概念</li>
+        <li>交叉熵 Loss 的由来</li>
+        <li>LR 模型 交叉熵 Loss 对 参数 w 的梯度 的优美形式，即：（模型结果 - 真实值）* x，很容易实现 </li>
+        <li>线性模型（如 感知机）对非线性数据的无能为力</li>
+        <li>通过引入非线性激活函数，神经元网络对非线性数据的强大能力</li>
+        <li>多元分类时的 Softmax 输出</li>
+        <li>基于图的 NN 前向计算 和 后向梯度传播</li>
+      </ul>
+    </p>
+
+    <p><a href=""></a></a></p>
+    <p>斯坦福 Dan Jurafsky 教授材料
+    <ul>
+      <li>Logistic 回归，<a href="http://www.stanford.edu/class/cs124/lec/logisticregression2021.pptx">PPT</a>（14MB）</li>
+      <li>SLP课本第5章：Logistic 回归，<a href="https://web.stanford.edu/~jurafsky/slp3/5.pdf">PDF</a> </li>
+      <li>神经元网络，<a href="http://www.stanford.edu/class/cs124/lec/7_NN.pptx">PPT</a>（15MB）</li>
+      <li>SLP课本第7章：神经元网络，<a href="https://web.stanford.edu/~jurafsky/slp3/7.pdf">PDF</a></li>
+    </ul>
+    </p>
+
+    <p>对话推荐系统练习
+    <ol>
+      <li>Python机器学习编程基础，<a href="https://docs.qq.com/doc/DT2JmR21qTkNxekpu">腾讯文档</a></li>
+      <li>Logistic 回归、神经元网络、用户需求和喜好感知, <a href="https://docs.qq.com/doc/DT1RHbVV4R1NqTVpt">腾讯文档</a></li>
+    </ol>
+    </p>
+
+    <h3><a name="transformer">1.7 Transformer</a></h3>
+
+    <p> 本节介绍 Attention、基于 Self Attention 的 序列模型Transformer。它们十分强大，是目前主流深度学习模型的核心模块。请一定要掌握它们。
+    </p>
+
+    <p><a href=""></a></a></p>
+    <p>伯克利 Sergey Levine 教授材料
+    <ul>
+      <li>Seq2Seq 和 Attention 的基本概念，<a href="ppt/18-deep/1-seq2seq.pdf">PPT</a>（1.5MB）</li>
+      <li>Transformers，<a href="ppt/18-deep/2-transformer.pdf">PDF</a> (1.4MB) </li>
+    </ul>
+
+    <p>练习
+    <ol>
+      <li>Transformer，<a href="https://docs.qq.com/doc/DT3VSdXV5UEVleGpz">腾讯文档</a></li>
+    </ol>
+    </p>
+
+    <h3><a name="pretrain">1.8 预训练模型</a></h3>
+
+    <p> 本节介绍 无监督 预训练 模型 的基本概念，包括 Word2Vec，预训练模型（ELMO、BERT、GPT）。它们十分强大，是目前主流深度学习模型的核心模块。请一定要掌握它们。
+    </p>
+
+    <p><a href=""></a></a></p>
+    <p>学习材料
+    <ul>
+      <li>伯克利 Sergey Levine 教授，CS182，无监督预训练模型，<a href="ppt/18-deep/3-nlp.pdf">PPT</a>（2.2MB）</li>
+      <li>斯坦福 John Hewitt，CS224N/Ling284，预训练模型，<a href="ppt/18-deep/3-cs224n-pretraining.pdf">PPT</a>（1.7MB）</li>
+      <li>维也纳理工大学，Sebastian Hofstätter，Transformer、BERT 预训练模型 与 Huggingface Transformer，<a href="ppt/18-deep/3-tansformer-bert-pretraining.pdf">PPT</a>（1.2MB）</li>
+    </ul>
+    </p>
+
+    <p>体验
+      <ol>
+        <li>Python Code，How to Fine Tune BERT for Text Classification using Transformers in Python, <a href="https://www.thepythoncode.com/article/finetuning-bert-using-huggingface-transformers-python">网页</a>，<a href="https://colab.research.google.com/drive/18Qqox_QxJkOs80XVYaoLsdum0dX-Ilxb">Colab</a> </li>
+        <li>DialoGPT 对话实验，<a href="https://colab.research.google.com/drive/1KAg6X8RFHE0KSvFSZ__w7KGZrSqT4cZ3">Colab</a></li>
+      </ol>
+    </p>
+
+    <p>练习
+      <ol>
+        <li>预训练模型，<a href="https://docs.qq.com/doc/DT0V5Z21yRHpwTEpx">腾讯文档</a></li>
+    </ol>
+    </p>
+
+    <h3><a name="dialog">1.9 对话系统</a></h3>
+
+    <p> 本节介绍对话系统的基本概念，包括：
+    <ul>
+      <li>Chatbot 和 面向任务的对话客服 的基本概念</li>
+      <li>ELIZA 对话机器人原理</li>
+      <li>基于 Frame 的面向任务对话系统 </li>
+      <li>人类对话的结构化属性</li>
+      <li>对话中 Grounding 的重要意义</li>
+      <li>多元分类时的 Softmax 输出</li>
+      <li>意图分类 和 Slot 提取</li>
+      <li>对话状态跟踪、对话策略 和 响应生成 </li>
+      <li>对话系统的评估</li>
+      <li>对话系统设计方法</li>
+    </ul>
+    </p>
+
+    <p><a href=""></a></a></p>
+    <p>斯坦福 Dan Jurafsky 教授材料
+    <ul>
+      <li>对话系统，<a href="http://www.stanford.edu/class/cs124/lec/24_Dialogue_May_6_2021.pptx">PPT</a>（17MB）</li>
+      <li>SLP课本第24章：对话系统，<a href="https://web.stanford.edu/~jurafsky/slp3/24.pdf">PDF</a></li>
+    </ul>
+    </p>
+
+    <p>对话推荐系统练习
+    <ol>
+      <li>面向任务的自然语言理解，<a href="https://docs.qq.com/doc/DT2FWSnR0c29uTFlx">腾讯文档</a></li>
+    </ol>
+    </p>
+
+    <h2>J. 实验</h2>
+
+    <h3><a name="python">A. Python入门</a></h3>
+
+    <p>王一行，《Python基础指南》，<a href="exercise/python.docx">Docx, 1.6MB</a></p>
+
+    <h3><a name="iris">B. 机器学习编程入门</a></h3>
+
+    <p>张璇，《Python机器学习快速上手入门指南》，<a href="exercise/mllab.docx">Docx, 237KB</a>，<a href="exercise/mllab.pdf">PDF, 342KB</a>，Iris实验代码和数据，<a href="exercise/iris.zip">Zip，1.5MB</a></p>
+
+    <h3><a name="chatbot">C. 电影推荐对话机器人</a></h3>
+
+    <p>项目介绍与起始代码：斯坦福 CS124 电影推荐机器人，<a href="https://github.com/cs124/pa6-chatbot">Github</a></p>
+
+    <p>实验报告
+    <ol>
+      <li>准备阶段</li>
+      <ul>
+        <li>推荐系统英文阅读与书评，<a href="https://docs.qq.com/doc/DT010WHljRVhlVUhV">腾讯文档</a> </li>
+        <li>代码分析与运行，<a href="https://docs.qq.com/doc/DT1NpRUZFZXpkdW5M">腾讯文档</a> </li>
+        <li>梯度下降优化，<a href="https://docs.qq.com/doc/DT01ZaXpsck5IblJp">腾讯文档</a>
+        </li>
+      </ul>
+      <li>第一阶段：机器学习</li>
+      <ul>
+        <li>文本信息提取、用户喜好感知、和合作过滤推荐，<a href="https://docs.qq.com/doc/DT3hydFFLelJWZGNX">腾讯文档</a> </li>
+        <li>Python机器学习编程基础，<a href="https://docs.qq.com/doc/DT2JmR21qTkNxekpu">腾讯文档</a></li>
+        <li>基于 Logistic回归、神经元网络的用户需求和喜好感知, <a href="https://docs.qq.com/doc/DT1RHbVV4R1NqTVpt">腾讯文档</a></li>
+      </ul>
+      <li>第二阶段：深度学习</li>
+      <ul>
+        <li>Transformer，<a href="https://docs.qq.com/doc/DT3VSdXV5UEVleGpz">腾讯文档</a></li>
+        <li>预训练模型，<a href="https://docs.qq.com/doc/DT0V5Z21yRHpwTEpx">腾讯文档</a></li>
+      </ul>
+      <li>第三阶段：对话系统设计</li>
+      <ul>
+        <li>面向任务的自然语言理解<a href="https://docs.qq.com/doc/DT2FWSnR0c29uTFlx">腾讯文档</a></li>
+      </ul>
+      <li>总结</li>
+      <ul>
+        <li>期末总结，<a href="hw/qa.md">Markdown文件</a></li>
+      </ul>
+    </ol>
+    </p>
+
+    <!-- <h2 id="致谢">致谢</h2>
+    <ul>
+      <li></li>
+    </ul> -->
+  </body>
+</html>
