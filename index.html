@@ -24,6 +24,7 @@
 
     <h3>目录</h3>
     <ol>
+      <li><a href="#info">课程信息</a></li>
       <li>大数据</li>
       <ul>
         <li><a href="#intro">大数据介绍</a></li>
@@ -36,6 +37,7 @@
         <li><a href="#perceptron">感知机</a></li>
         <li><a href="#perceptron-learn">感知机的学习</a></li>
         <li><a href="#perceptron-opti">感知机的优化</a></li>
+        <li><a href="#perceptron-deep">从感知机到深度学习</a></li>
         <li><a href="#opti">Winnow分类算法</a></li>
       </ul>
       <li>SVM 支持向量机</li>
@@ -47,6 +49,11 @@
         <li><a href="#deriv">SVM梯度下降优化</a></li>
         <li><a href="#hinge-div">Hinge Loss导数表</a></li>
         <li><a href="#sgd">随机和Batch梯度下降</a></li>
+        <li><a href="#dlsgd">深度学习中的梯度下降</a></li>
+        <li><a href="gd-lab">梯度下降练习</a></li>
+
+        <li><a href="#svm-dual">SVM优化问题的求解</a></li>
+        <li><a href="#svm-lab">SVM练习</a></li>
       </ul>
       <li>贝叶斯模型</li>
       <ul>
@@ -58,17 +65,23 @@
         <li><a href="#skill">应用技巧</a></li>
         <li><a href="#bnet">贝叶斯网络</a></li>
         <li><a href="#marblanket">马尔科夫毯</a></li>
-        <li><a href="mcmc">蒙特卡洛仿真</a></li>
-        <li><a href="hyp">假设检验</a></li>
+        <li><a href="#mcmc">蒙特卡洛仿真</a></li>
+        <li><a href="#hyp">假设检验</a></li>
       </ul>
       <li>降维</li>
       <ul>
         <li><a href="#dimension">降维</a></li>
         <li><a href="#vector">特征值和特征向量</a></li>
         <li><a href="#pca">主元素分析</a></li>
-        <li><a href="pcamath">主元素分析的数学理解</a></li>
         <li><a href="#svd">奇异值分解</a></li>
+        <li><a href="#drapp">降维应用</a></li>
       </ul>
+      <li>机器学习</li>
+      <ul>
+        <li><a href="#ml">KNN、决策树、Boosting</a></li>
+        <li><a href="#pca-ml-lab">PCA 与机器学习练习</a></li>
+      </ul>
+
       <li>推荐</li>
       <ul>
         <li><a href="#recsys">推荐系统模型</a></li>
@@ -87,15 +100,27 @@
         <li><a href="#contextual">上下文老虎机</a></li>
         <li><a href="#linucb">LinUCB 算法</a></li>
        </ul>
-      <li>实验</li>
+      <li><a href="#exp">实验</a></li>
       <ul>
-        <li><a href="#exp">Python入门</a></li>
-        <li><a href="#exp">机器学习编程入门</a></li>
+        <li>Python入门</li>
+        <li>机器学习编程入门</li>
+        <li>杜克大学BIOS系列练习</li>
+        <li>MIT深度学习课程练习</li>
       </ul>
       </ol>
 
     <!-- == -->
 
+    <h2><a name="info">课程信息</a></h2>
+
+    <p>课本
+      <ol>
+        <li>Jure Leskovec, Anand Rajaraman, Jeff Ullman, Mining of Massive Datasets,
+        <a href="http://www.mmds.org/">网址</a> </li>
+        <li>李航:《统计学习方法》</li>
+      </ol>
+
+    </p>
     <h2>A、大数据</h2>
 
     <p>人类已经进入了大数据时代。数据就像空气、水、电力、能源一样，成为了最重要的生产要素。本章介绍大数据的特点和存储计算模型，为后面的大数据机器学习算法奠定基础。</p>
@@ -155,8 +180,11 @@
     <p><a href="https://www.bilibili.com/video/BV1c64y1f757/">B站视频</a></p>
     <p>课程PPT：<a href="ppt/7-perceptron-more.pptx">PPT</a>（168KB）</p>
 
+    <h3><a name="perceptron-deep">七A、从感知机到深度学习</a></h3>
+
     <p>感知机是深度学习的基础。下面我们来看看感知机进化到深度学习后，有些什么变化</p>
-    <p>课程PPT：<a href="ppt/7-perceptron-mit-6S191.pdf">PPT</a>（1.8MB）</p>
+
+    <p>MIT 深度学习课程PPT：<a href="ppt/7-perceptron-mit-6S191.pdf">PPT</a>（1.8MB）</p>
 
     <h3><a name="opti">八、Winnow分类算法</a></h3>
 
@@ -209,14 +237,41 @@
 
     <h3><a name="sgd">十五、随机和Batch梯度下降</a></h3>
 
-    <p>本节介绍随机梯度下降和Batch梯度下降方法的原理、实现和效果。这些方法能够极大地提高模型训练的速度（上万倍），所以是目前机器学习和深度学习中的主流方法，请一定好好理解它们。我们然后为你准备了一个斯坦福大学的SVM三种梯度下降方法的作业。请一定要完成它，这样你才会真正懂得梯度下降和SVM模型。记住，一定完成它！</p>
+    <p>本节介绍随机梯度下降和Batch梯度下降方法的原理、实现和效果。这些方法能够极大地提高模型训练的速度（上万倍），所以是目前机器学习和深度学习中的主流方法。</p>
 
     <p><a href="https://www.bilibili.com/video/BV1sT4y1M7pV/">B站视频</a></p>
 
-    <p>梯度下降是深度学习的基础。下面我们来看看深度学习是任何运用梯度下降的</p>
-    <p>课程PPT：<a href="ppt/11-sgd-mit.pdf">PPT</a>（2.6MB）</p>
+    <h3><a name="dlsgd">十五A：深度学习中的梯度下降</a></h3>
 
-    <p>练习：<a href="hw/hw4.pdf">PDF</a>（274KB），<a href="hw/svm-hw.zip">Zip</a>（4.4MB）</p>
+    <p>梯度下降是深度学习的基础。下面我们来看看深度学习是任何运用梯度下降的</p>
+    <p>MIT 课程PPT：<a href="ppt/11-sgd-mit.pdf">PPT</a>（2.6MB）</p>
+
+    <h3><a name="gd-lab">十五B：梯度下降练习</a></h3>
+
+    我们用一个简单例子，来体验一下梯度下降方法的代码实现：
+
+    <ul>
+      <li>梯度下降编程实验：布朗大学，线性回归，梯度下降 实验，代码：<a href="http://yishuai.github.io/bigalgo/hw/soln_gd.ipynb">ipynb</a></li>
+      <li>参考：往届同学，Lisben ML 夏令营 Python和梯度下降入门实验报告：<a href="https://docs.qq.com/doc/DT01ZaXpsck5IblJp">腾讯文档</a></li>
+    </ul>
+
+    <h3><a name="svm-dual">十五C：SVM优化问题的求解</a></h3>
+
+    <p> 本节介绍如何构造SVM优化问题的拉格朗日函数，然后通过建立它的对偶问题，进行求解。通过这种方法，求解更加方便。
+    </p>
+
+    <p>课程PPT：<a href="ppt/10-svm-lihang.pptx">PPT</a>（842KB）</p>
+
+    <p>参考课本：李航老师课本第7章 SVM 的 7.2节《线性支持向量机与软间隔最大化》，7.4节《序列最小最优化算法》及其代码实现：<a href="http://github.com/SmirkCao/Lihang">代码1</a>，<a href="https://github.com/WenDesi/lihang_book_algorithm">代码2</a>
+    </p>
+
+    <h3><a name="svm-lab">十五D：SVM练习</a></h3>
+
+    我们下面练习如何实现基于梯度下降的SVM算法：
+
+    <ul>
+      <li>SVM编程练习：斯坦福大学，SVM 三种梯度下降方法。说明：<a href="hw/hw4.pdf">PDF</a>（274KB），起始代码：<a href="hw/svm-hw.zip">Zip</a>（4.4MB）</li>，参考答案：<a href="hw/hw4-sol.zip">Zip（151KB）</a>
+    </ul>
 
   <h2>D. 贝叶斯推断</h2>
 
@@ -306,6 +361,10 @@
 
     <p><a href="https://www.bilibili.com/video/BV1JA41147Mf/">B站视频</a></p>
 
+    <h3><a name="pca-math">二十四A、PCA数学原理</a></h3>
+
+    <p>对数据矩阵的协方差矩阵做特征分解，得到的特征向量，就是数据在该方向上的投影方差最大的向量，即：特征值最大的特征向量指明了该数据的主方向，依次类推还有其它次方向。这些方向相互正交。然后，将原始数据矩阵与这些主方向做乘积，就完成了向量投影，即坐标变换。这一过程非常有意思。本节从数学的角度，阐述PCA的基本原理。</p>
+
     <h3><a name="vector">二十五、特征值和特征向量</a></h3>
 
     <p>本节介绍降维的数学基础：矩阵的特征值和特征向量。通过它们，我们就可以实现各种神奇的降维效果。本节特别介绍幂迭代（power iteration）计算特征向量的方法。该方法特别适合大数据场景。快来看看吧！
@@ -320,14 +379,6 @@
 
     <p><a href="https://www.bilibili.com/video/BV1ZT4y1T7R6/">B站视频</a></p>
 
-    <h3><a name="pcamath">二十六、PCA的数学理解</a></h3>
-
-    <p>
-      PCA基于数据矩阵的协方差矩阵的特征分解，由此得到的特征值最大的特征向量指明了该数据的主方向，即数据在该方向上的投影的方差最大，依次类推还有其它次方向。这些方向相互正交。因此，将原始数据矩阵与这些主方向做乘积，就完成了向量投影，即坐标变换。这一过程非常有意思。本节从数学的角度，阐述PCA的基本原理。
-    </p>
-
-    <p><a href="ppt/13-pca-math.pptx ">PPT</a>（571KB）</p>
-
     <h3><a name="svd">二十七、奇异值分解</a></h3>
 
     <p>奇异值分解可以将一个矩阵分解为三个子矩阵的乘积，其中两个子矩阵分别反映了原始矩阵的行和列的基本信息，而另一矩阵的数值反映了它们在原始矩阵中的重要程度。基于它们，我们可以获得对样本和样本特征的降维描述，方便后续数据的处理和模型的学习，也可以据此进行推荐，非常有趣。本节我们练习斯坦福的另一个作业。一定要完成哦。
@@ -339,7 +390,52 @@
 
     <p>PCA和SVD练习：<a href="hw/hw2.pdf">PDF</a>（318KB）</p>
 
-    <h2>F、推荐系统</h2>
+    <h3><a name="drapp">二十七A、降维应用</a></h3>
+
+    <p> 降维意味着用一个向量来表示一个对象。因此，除了将用户、商品表示为向量，我们还可以将单词也表示为向量，这就是Word2Vec。本节介绍
+
+      <ul>
+        <li>将 SVD 应用于单词的coocurrence矩阵，得到单词的向量表征</li>
+        <li>深度学习中的Word2Vec，得到单词的向量表征</li>
+        <li>t-SNE 深度学习的降维可视化方法</li>
+        <li>MNIST 等各种数据，经过降维后的可视化效果</li>
+      </ul>
+    </p>
+
+    <p><a href="ppt/14-word2vec-tsne.pdf ">PDF</a>（18.6MB）</p>
+
+  <h2>F、机器学习</h2>
+
+    <h3><a name="ml">二十七B、KNN、决策树、Boosting</a></h3>
+
+    <p>本节介绍 KNN、决策树、Boosting 这三种常用机器学习模型的基本概念。</p>
+
+    <p>参考：李航老师课本
+      <ul>
+        <li>第3章 KNN</li>
+        <li>第5章 决策树</li>
+        <li>第8章 提升方法</li>
+      </ul></p>
+
+    <p><a href="ppt/13-ml-misc.pptx ">PPT</a>（3.9MB）</p>
+
+    <h3><a name="pca-ml-lab">二十七C、PCA 与机器学习练习</a></h3>
+
+    <p>学会了降维和机器学习，我们下面来完成一套完整的机器学习流程，包括两个实验和一个练习。</p>
+
+    <ul>
+      <li>实验</li>
+      <ul>
+        <li>机器学习实验：布朗大学，Iris KNN 分类器、波士顿房价 线性回归 实验，<a href="http://yishuai.github.io/bigalgo/hw/brown-iris-knn-boston-lr-lab.zip">Zip</a></li>
+        <li>PCA 实验：布朗大学，PCA 降维文档分类、聚类 实验，<a href="http://yishuai.github.io/bigalgo/hw/brown-pca-doc-classify-cluster-lab.zip">Zip</a></li>
+      </ul>
+      <li>练习</li>
+      <ul>
+        <li>机器学习练习：布朗大学，图片、歌曲聚类 练习，<a href="http://yishuai.github.io/bigalgo/hw/brwon-kmeans-img-song-hw.zip">Zip</a></li>
+      </ul>
+    </ul>
+
+    <h2>G、推荐系统</h2>
 
     <p>哪个机器学习算法最值钱？推荐。我们现在买的大部分东西都不是我们主动寻找的，而是被推荐的。其它呢？读的书、观的影、看的文、交的友、走的路、爱的人、....，一切的一切、都是被推荐的。所以，本节我们学习推荐。</p>
 
@@ -386,14 +482,13 @@
     </ol>
     </p>
 
-    <p>算法练习
+    <p>PCA、SVD 算法练习
     <ol>
       <li>斯坦福 CS246 大数据处理练习：第3，4题，<a href="hw/hw2.pdf">PDF</a>（318KB），<a href="hw/hw2.zip">数据</a>（1.1MB）</li>
-      <li>Lisben ML 夏令营 Python和梯度下降入门：<a href="https://docs.qq.com/doc/DT01ZaXpsck5IblJp">腾讯文档</a></li>
     </ol>
     </p>
 
-    <h2>G. 通过试验学习</h2>
+    <h2>H、通过试验学习</h2>
 
     <p>朋友，你有没有走进游戏厅，面对满屋老虎机，不知道如何下手？你知不知道，人生也有一点像老虎机，你需要在尝试中学习？你又想不想知道，要玩好人生老虎机，是要乐观呢，还是悲观？没错，这是一个机器学习问题。本节我们就来系统学习这个问题，找到老虎机的最优玩法。</p>
 
@@ -476,9 +571,13 @@
 
     <h3><a name="exp">四十一、实验</a></h3>
 
-    <p>王一行，《Python基础指南》，<a href="exercise/python.docx">Docx, 1.6MB</a></p>
-
-    <p>张璇，《Python机器学习快速上手入门指南》，<a href="exercise/mllab.docx">Docx, 237KB</a>，<a href="exercise/mllab.pdf">PDF, 342KB</a>，Iris实验代码和数据，<a href="exercise/iris.zip">Zip，1.5MB</a></p>
+    <ul>
+      <li>王一行，《Python基础指南》，<a href="exercise/python.docx">Docx, 1.6MB</a></li>
+      <li>张璇，《Python机器学习快速上手入门指南》，<a href="exercise/mllab.docx">Docx, 237KB</a>，<a href="exercise/mllab.pdf">PDF, 342KB</a>，Iris实验代码和数据，<a href="exercise/iris.zip">Zip，1.5MB</a></li>
+      <li>杜克大学，BIOS系列练习，<a href="https://github.com/cliburn/bios-823-2021">Github链接</a></li>
+      <li>MIT 6S191 Deep Learning, <a href="http://introtodeeplearning.com/">课程网址</a>，实验代码：<a href="https://github.com/aamini/introtodeeplearning">Github链接</a></li>
+    </ul>
+  </p>
 
     <!-- <h2 id="致谢">致谢</h2>
     <ul>
