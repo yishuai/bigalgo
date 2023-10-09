@@ -2,3 +2,5 @@
 **/.vscode/
 **/bak/
 **/local/
+**/platform/
+.DS\_Store

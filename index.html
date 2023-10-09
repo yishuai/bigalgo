@@ -19,7 +19,7 @@
     <img src="figure/cn.png" width="150" alt="2dmark" />
 
     <p>
-      北京交通大学《大数据存储和应用》课程，源自斯坦福CS245大规模数据挖掘，讲解机器学习和数据挖掘算法的基本原理和算法，一路下来，带大家在动手中，走上算法研发的职业道路。详细课程信息请访问：https://yishuai.github.io/bigalgo
+      北京交通大学《大数据存储和处理》课程，源自斯坦福CS245大规模数据挖掘，讲解大数据、机器学习、深度学习、推荐算法的基本原理和算法，一路下来，带大家在动手中，走上算法研发的职业道路。详细课程信息请访问：https://yishuai.github.io/bigalgo
     </p>
 
     <h3>目录</h3>
@@ -37,23 +37,29 @@
         <li><a href="#perceptron">感知机</a></li>
         <li><a href="#perceptron-learn">感知机的学习</a></li>
         <li><a href="#perceptron-opti">感知机的优化</a></li>
-        <li><a href="#perceptron-deep">从感知机到深度学习</a></li>
-        <li><a href="#opti">Winnow分类算法</a></li>
+        <li><a href="#opti">Winnow 分类算法</a></li>
+      </ul>
+      <li>深度学习</li>
+      <ul>
+        <li><a href="#perceptron-deep">深度学习原理</a></li>
+        <li><a href="#dlsgd">深度学习梯度下降</a></li>
+        <li><a href="#cnn">CNN</a></li>
+        <li><a href="#rnn">RNN</a></li>
+        <li><a href="#lr-nn">Logistic 回归和神经元网络</a></li>
+        <li><a href="#seq2seq">Seq2Seq 和 Attention</a></li>
+        <li><a href="#transformer">Transformer</a></li>
       </ul>
       <li>SVM 支持向量机</li>
       <ul>
-        <li><a href="#svm">SVM支持向量机</a></li>
-        <li><a href="#svm-learn">SVM的学习</a></li>
+        <li><a href="#svm">SVM 支持向量机</a></li>
+        <li><a href="#svm-learn">SVM 的学习</a></li>
         <li><a href="#hinge">Hinge Loss</a></li>
         <li><a href="#loss">SVM Loss</a></li>
-        <li><a href="#deriv">SVM梯度下降优化</a></li>
-        <li><a href="#hinge-div">Hinge Loss导数表</a></li>
-        <li><a href="#sgd">随机和Batch梯度下降</a></li>
-        <li><a href="#dlsgd">深度学习中的梯度下降</a></li>
-        <li><a href="gd-lab">梯度下降练习</a></li>
-
-        <li><a href="#svm-dual">SVM优化问题的求解</a></li>
-        <li><a href="#svm-lab">SVM练习</a></li>
+        <li><a href="#deriv">SVM 梯度下降优化</a></li>
+        <li><a href="#hinge-div">Hinge Loss 导数表</a></li>
+        <li><a href="#sgd">随机和 Batch 梯度下降</a></li>
+        <li><a href="#svm-dual">SVM 优化问题的求解</a></li>
+        <li><a href="#svm-lab">SVM 练习</a></li>
       </ul>
       <li>贝叶斯模型</li>
       <ul>
@@ -81,7 +87,6 @@
         <li><a href="#ml">KNN、决策树、Boosting</a></li>
         <li><a href="#pca-ml-lab">PCA 与机器学习练习</a></li>
       </ul>
-
       <li>推荐</li>
       <ul>
         <li><a href="#recsys">推荐系统模型</a></li>
@@ -180,11 +185,79 @@
     <p><a href="https://www.bilibili.com/video/BV1c64y1f757/">B站视频</a></p>
     <p>课程PPT：<a href="ppt/7-perceptron-more.pptx">PPT</a>（168KB）</p>
 
-    <h3><a name="perceptron-deep">七A、从感知机到深度学习</a></h3>
+    <h2>B2、深度学习</h2>
+
+    <h3><a name="perceptron-deep">深度学习原理</a></h3>
 
     <p>感知机是深度学习的基础。下面我们来看看感知机进化到深度学习后，有些什么变化</p>
 
-    <p>MIT 深度学习课程PPT：<a href="ppt/7-perceptron-mit-6S191.pdf">PPT</a>（1.8MB）</p>
+    <p>MIT 深度学习课程PPT：<a href="ppt/18-deep/0-1-mit-dl.pdf">PPT</a>（1.8MB）</p>
+
+    <h3><a name="dlsgd">深度学习梯度下降</a></h3>
+
+    <p>梯度下降是深度学习的基础。下面我们来看看深度学习是任何运用梯度下降的</p>
+
+    <a href="ppt/18-deep/0-2-lec-4-sgd.pdf">PPT</a>
+
+    我们用一个简单例子，来体验一下梯度下降方法的代码实现：
+
+    <ul>
+      <li>梯度下降编程实验：布朗大学，线性回归，梯度下降 实验，代码：<a href="http://yishuai.github.io/bigalgo/hw/soln_gd.ipynb">ipynb</a></li>
+      <li>参考：往届同学，Lisben ML 夏令营 Python和梯度下降入门实验报告：<a href="https://docs.qq.com/doc/DT01ZaXpsck5IblJp">腾讯文档</a></li>
+    </ul>
+
+    <h3><a name="cnn">CNN</a></h3>
+
+    <a href="ppt/18-deep/0-3-mit-cnn.pdf">MIT PPT</a>
+
+    <a href="ppt/18-deep/0-4-lec-8-cnn.pdf"> Berkeley PPT</a>
+
+    <h3><a name="rnn">RNN</a></h3>
+
+    <a href="ppt/18-deep/0-5-lec-10-rnn.pdf">MIT PPT</a>
+
+    <h3><a name="lr-nn">Logistic 回归 和 神经元网络</a></h3>
+
+    <p> 本节介绍 Logistic 回归（LR）和 神经元网络（NN）的基本概念，包括：
+      <ul>
+        <li>Discriminative 概率分类模型 P(c|d) 的基本概念</li>
+        <li>交叉熵 Loss 的由来</li>
+        <li>LR 模型 交叉熵 Loss 对 参数 w 的梯度 的优美形式，即：（模型结果 - 真实值）* x，很容易实现 </li>
+        <li>线性模型（如 感知机）对非线性数据的无能为力</li>
+        <li>通过引入非线性激活函数，神经元网络对非线性数据的强大能力</li>
+        <li>多元分类时的 Softmax 输出</li>
+        <li>基于图的 NN 前向计算 和 后向梯度传播</li>
+      </ul>
+    </p>
+
+    <p>斯坦福 Dan Jurafsky 教授材料
+    <ul>
+      <li>Logistic 回归，<a href="http://www.stanford.edu/class/cs124/lec/logisticregression2021.pptx">PPT</a>（14MB）</li>
+      <li>SLP课本第5章：Logistic 回归，<a href="https://web.stanford.edu/~jurafsky/slp3/5.pdf">PDF</a> </li>
+      <li>神经元网络，<a href="http://www.stanford.edu/class/cs124/lec/7_NN.pptx">PPT</a>（15MB）</li>
+      <li>SLP课本第7章：神经元网络，<a href="https://web.stanford.edu/~jurafsky/slp3/7.pdf">PDF</a></li>
+    </ul>
+    </p>
+
+    <h3><a name="seq2seq">Seq2Seq 和 Attention</a></h3>
+
+    <p>伯克利 Sergey Levine 教授材料
+      <ul>
+        <li>Seq2Seq 和 Attention 的基本概念，<a href="ppt/18-deep/1-seq2seq.pdf">PPT</a>（1.5MB）</li>
+      </ul>
+  
+    <h3><a name="transformer">Transformer</a></h3>
+
+    <p>伯克利 Sergey Levine 教授材料
+    <ul>
+      <li>Transformers，<a href="ppt/18-deep/2-transformer.pdf">PDF</a> (1.4MB) </li>
+    </ul>
+
+    <p>练习
+    <ol>
+      <li>Transformer，<a href="https://docs.qq.com/doc/DT3VSdXV5UEVleGpz">腾讯文档</a></li>
+    </ol>
+    </p>
 
     <h3><a name="opti">八、Winnow分类算法</a></h3>
 
@@ -240,20 +313,6 @@
     <p>本节介绍随机梯度下降和Batch梯度下降方法的原理、实现和效果。这些方法能够极大地提高模型训练的速度（上万倍），所以是目前机器学习和深度学习中的主流方法。</p>
 
     <p><a href="https://www.bilibili.com/video/BV1sT4y1M7pV/">B站视频</a></p>
-
-    <h3><a name="dlsgd">十五A：深度学习中的梯度下降</a></h3>
-
-    <p>梯度下降是深度学习的基础。下面我们来看看深度学习是任何运用梯度下降的</p>
-    <p>MIT 课程PPT：<a href="ppt/11-sgd-mit.pdf">PPT</a>（2.6MB）</p>
-
-    <h3><a name="gd-lab">十五B：梯度下降练习</a></h3>
-
-    我们用一个简单例子，来体验一下梯度下降方法的代码实现：
-
-    <ul>
-      <li>梯度下降编程实验：布朗大学，线性回归，梯度下降 实验，代码：<a href="http://yishuai.github.io/bigalgo/hw/soln_gd.ipynb">ipynb</a></li>
-      <li>参考：往届同学，Lisben ML 夏令营 Python和梯度下降入门实验报告：<a href="https://docs.qq.com/doc/DT01ZaXpsck5IblJp">腾讯文档</a></li>
-    </ul>
 
     <h3><a name="svm-dual">十五C：SVM优化问题的求解</a></h3>
 
@@ -439,7 +498,11 @@
 
     <p>哪个机器学习算法最值钱？推荐。我们现在买的大部分东西都不是我们主动寻找的，而是被推荐的。其它呢？读的书、观的影、看的文、交的友、走的路、爱的人、....，一切的一切、都是被推荐的。所以，本节我们学习推荐。</p>
 
-    <p><a href="ppt/15-recsys.pptx">PPT</a>（3.9MB）</p>
+    <p><a href="ppt/15-recsys/11-1-recsys.pptx">PPT</a>（3.9MB）</p>
+
+    <p><a href="ppt/15-recsys/11-2-lecture7.pdf">UCSD PPT 1</a>（2.5MB）</p>
+    <p><a href="ppt/15-recsys/11-3-lecture8.pdf">UCSD PPT 2</a>（1.4MB）</p>
+
     <p>参考：Dan Jurafsky, 推荐系统与合作过滤，<a href="http://web.stanford.edu/class/cs124/lec/collaborativefiltering21.pptx">PPT</a>（3MB）</p>
 
     <h3><a name="recsys">二十八、推荐系统模型</a></h3>
@@ -573,6 +636,7 @@
 
     <ul>
       <li>王一行，《Python基础指南》，<a href="exercise/python.docx">Docx, 1.6MB</a></li>
+      <li>熊治杰，《Python手册》，<a href="https://mp.weixin.qq.com/s/OqE8gRLL2G78d8pYYSUKLw">网页</a></li>
       <li>张璇，《Python机器学习快速上手入门指南》，<a href="exercise/mllab.docx">Docx, 237KB</a>，<a href="exercise/mllab.pdf">PDF, 342KB</a>，Iris实验代码和数据，<a href="exercise/iris.zip">Zip，1.5MB</a></li>
       <li>杜克大学，BIOS系列练习，<a href="https://github.com/cliburn/bios-823-2021">Github链接</a></li>
       <li>MIT 6S191 Deep Learning, <a href="http://introtodeeplearning.com/">课程网址</a>，实验代码：<a href="https://github.com/aamini/introtodeeplearning">Github链接</a></li>
