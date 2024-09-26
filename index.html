@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>机器学习算法：原理和应用</title>
+    <title>算法模型</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   </head>
   <body>
 
     <h1>大数据存储和处理</h1>
 
-    <h2>机器学习算法：原理和应用</h2>
+    <h2>算法模型</h2>
 
     <p>陈一帅</p>
 
@@ -18,36 +18,76 @@
 
     <img src="figure/cn.png" width="150" alt="2dmark" />
 
+    <h3>介绍</h3>
+
+    <p>我们已经进入了大数据时代。大数据存储和处理的算法模型非常奇妙。本课程包括如下算法和模型：
+      <ul>
+        <li>大数据分布式存储与计算模式、Map-Reduce</li>
+        <li>机器学习（感知机、SVM、KNN、决策树、Boosting、Logistic 回归，降维）</li>
+        <li>推荐系统（基于内容、合作过滤、Latent 分解）</li>
+        <li>深度学习（神经元网络、梯度下降优化、深度学习表征、CNN、RNN、Transformer、大语言模型）</li>
+        <li>通过试验学习（MAB – 多臂老虎机、UCB）</li>
+        <li>贝叶斯模型（贝叶斯分类、贝叶斯网络）</li>
+      </ul>
+
+      通过上述内容学习，我们将理解大数据、机器学习、深度学习、推荐算法、增强学习的基本原理和算法，走上算法和模型研发的职业道路。详细课程信息请访问：https://yishuai.github.io/bigalgo
+    </p>
+
+    <h3>课本</h3>
     <p>
-      北京交通大学《大数据存储和处理》课程，源自斯坦福CS245大规模数据挖掘，讲解大数据、机器学习、深度学习、推荐算法的基本原理和算法，一路下来，带大家在动手中，走上算法研发的职业道路。详细课程信息请访问：https://yishuai.github.io/bigalgo
+      <ul>
+        <li>Jure Leskovec, Anand Rajaraman, Jeff Ullman, Mining of Massive Datasets, (3rd ed.)，<a href="http://www.mmds.org/">网址</a> </li>
+        <ul>
+          <li>第 2 章，Map-Reduce 和大数据平台</li>
+          <li>第 9 章，推荐系统</li>
+          <li>第 12 章，机器学习</li>
+          <li>第 13 章，神经元网络与深度学习</li>
+        </ul>
+        <li>Dan Jurafsky and James H. Martin，Speech and Language Processing (3rd ed. draft)，<a href="https://web.stanford.edu/~jurafsky/slp3/">网址</a></li>
+        <ul>
+          <li>第 4 章，Naive Bayes, Text Classification, and Sentiment</li>
+          <li>第 5 章，Logistic Regression</li>
+          <li>第 6 章，Vector Semantics and Embeddings</li>
+          <li>第 7 章，Neural Networks</li>
+          <li>第 8 章，RNNs and LSTMs</li>
+          <li>第 9 章，Transformers</li>
+          <li>第 10 章，Large Language Models</li>
+          <li>第 11 章，Masked Language Models</li>
+          <li>第 12 章，Model Alignment, Prompting, and In-Context Learning</li>
+        </ul>
+        <li>李航，统计学习方法</li>
+        <ul>
+            <li>第 3 章，KNN</li>
+            <li>第 5 章，决策树</li>
+            <li>第 7 章，SVM</li>
+            <li>第 8 章，提升方法</li>
+        </ul>
+      </ul>
+    </p>
+
+    <h3>致谢</h3>
+    <p>
+      <ul>
+        <li>斯坦福 CS 246 大规模数据挖掘（<a href="https://web.stanford.edu/class/cs246/">课程网址</a>）</li>
+        <li>斯坦福 CS 224n 深度学习和自然语言处理（<a href="https://web.stanford.edu/class/cs224n/">课程网址</a>）</li>
+      </ul>
     </p>
 
     <h3>目录</h3>
-    <ol>
-      <li><a href="#info">课程信息</a></li>
-      <li>大数据</li>
+    <ul>
+      <li>大数据模型</li>
       <ul>
-        <li><a href="#intro">大数据介绍</a></li>
+        <li><a href="#intro">概念</a></li>
         <li><a href="#memory">存储模型</a></li>
         <li><a href="#compute">计算模型</a></li>
       </ul>
       <li>Perceptron 感知机</li>
       <ul>
-        <li><a href="#ml">机器学习基本概念</a></li>
-        <li><a href="#perceptron">感知机</a></li>
-        <li><a href="#perceptron-learn">感知机的学习</a></li>
+        <li><a href="#ml">机器学习</a></li>
+        <li><a href="#perceptron">感知机分类算法</a></li>
+        <li><a href="#perceptronlearn">感知机的学习</a></li>
         <li><a href="#perceptron-opti">感知机的优化</a></li>
-        <li><a href="#opti">Winnow 分类算法</a></li>
-      </ul>
-      <li>深度学习</li>
-      <ul>
-        <li><a href="#perceptron-deep">深度学习原理</a></li>
-        <li><a href="#dlsgd">深度学习梯度下降</a></li>
-        <li><a href="#cnn">CNN</a></li>
-        <li><a href="#rnn">RNN</a></li>
-        <li><a href="#lr-nn">Logistic 回归和神经元网络</a></li>
-        <li><a href="#seq2seq">Seq2Seq 和 Attention</a></li>
-        <li><a href="#transformer">Transformer</a></li>
+        <li><a href="#winnow">Winnow 分类算法</a></li>
       </ul>
       <li>SVM 支持向量机</li>
       <ul>
@@ -59,7 +99,50 @@
         <li><a href="#hinge-div">Hinge Loss 导数表</a></li>
         <li><a href="#sgd">随机和 Batch 梯度下降</a></li>
         <li><a href="#svm-dual">SVM 优化问题的求解</a></li>
-        <li><a href="#svm-lab">SVM 练习</a></li>
+        <li><a href="#svm-lab">练习</a></li>
+      </ul>
+      <li>其它机器学习方法</li>
+      <ul>
+        <li><a href="#ml">KNN、决策树、Boosting</a></li>
+        <li><a href="#rl">Logistic 回归</a></li>
+        <li><a href="#pca-ml-lab">练习</a></li>
+      </ul>
+      <li>降维</li>
+      <ul>
+        <li><a href="#vector">特征值和特征向量</a></li>
+        <li><a href="#pca">主元素分析</a></li>
+        <li><a href="#svd">奇异值分解</a></li>
+        <li><a href="#drex">练习</a></li>
+      </ul>
+      <li>推荐</li>
+      <ul>
+        <li><a href="#recsys">推荐系统模型</a></li>
+        <li><a href="#content">基于内容的推荐</a></li>
+        <li><a href="#cf">协同过滤</a></li>
+        <li><a href="#netflix">Netflix推荐大赛</a></li>
+        <li><a href="#recomex">练习</a></li>
+      </ul>
+      <li>深度学习与大语言模型</li>
+      <ul>
+        <li><a href="nn">神经元网络基本概念</a></li>
+        <li><a href="word2vec">深度学习表征</a></li>
+        <li><a href="cnn">CNN</a></li>
+        <li><a href="rnn">RNN </a></li>
+        <li><a href="tf">Transformer </a></li>
+        <li><a href="prellm">预训练大语言模型</a></li>
+        <li><a href="dlrex">练习</a></li>
+      </ul>
+      <li>通过试验学习</li>
+      <ul>
+        <li><a href="#experi">通过试验学习</a></li>
+        <li><a href="#mab">多臂老虎机模型</a></li>
+        <li><a href="#regret">老虎机的悔恨</a></li>
+        <li><a href="#explore">探索与利用</a></li>
+        <li><a href="#epsilon">epsilon-贪心算法</a></li>
+        <li><a href="#ucb">UCB 算法</a></li>
+        <li><a href="#contextual">上下文老虎机</a></li>
+        <li><a href="#linucb">LinUCB 算法</a></li>
+        <li><a href="#banditex">练习</a></li>
       </ul>
       <li>贝叶斯模型</li>
       <ul>
@@ -71,73 +154,33 @@
         <li><a href="#skill">应用技巧</a></li>
         <li><a href="#bnet">贝叶斯网络</a></li>
         <li><a href="#marblanket">马尔科夫毯</a></li>
-        <li><a href="#mcmc">蒙特卡洛仿真</a></li>
-        <li><a href="#hyp">假设检验</a></li>
+        <!-- <li><a href="#mcmc">蒙特卡洛仿真</a></li> -->
+        <!-- <li><a href="#hyp">假设检验</a></li> -->
+        <li><a href="#bayesex">练习</a></li>
       </ul>
-      <li>降维</li>
+      <li><a href="#quiz">Quiz</a></li>
+      <li><a href="#exp">参考材料</a></li>
       <ul>
-        <li><a href="#dimension">降维</a></li>
-        <li><a href="#vector">特征值和特征向量</a></li>
-        <li><a href="#pca">主元素分析</a></li>
-        <li><a href="#svd">奇异值分解</a></li>
-        <li><a href="#drapp">降维应用</a></li>
+        <li>编程</li>
+        <li>课程</li>
+        <li>工具</li>
       </ul>
-      <li>机器学习</li>
-      <ul>
-        <li><a href="#ml">KNN、决策树、Boosting</a></li>
-        <li><a href="#pca-ml-lab">PCA 与机器学习练习</a></li>
-      </ul>
-      <li>推荐</li>
-      <ul>
-        <li><a href="#recsys">推荐系统模型</a></li>
-        <li><a href="#content">基于内容的推荐</a></li>
-        <li><a href="#cf">协同过滤</a></li>
-        <li><a href="#netflix">Netflix推荐大赛</a></li>
-       </ul>
-       <li>通过试验学习</li>
-       <ul>
-        <li><a href="#experi">通过试验学习</a></li>
-        <li><a href="#mab">多臂老虎机模型</a></li>
-        <li><a href="#regret">老虎机的悔恨</a></li>
-        <li><a href="#explore">探索与利用</a></li>
-        <li><a href="#epsilon">epsilon-贪心算法</a></li>
-        <li><a href="#ucb">UCB 算法</a></li>
-        <li><a href="#contextual">上下文老虎机</a></li>
-        <li><a href="#linucb">LinUCB 算法</a></li>
-       </ul>
-      <li><a href="#exp">实验</a></li>
-      <ul>
-        <li>Python入门</li>
-        <li>机器学习编程入门</li>
-        <li>杜克大学BIOS系列练习</li>
-        <li>MIT深度学习课程练习</li>
-      </ul>
-      </ol>
+    </ul>
 
     <!-- == -->
 
-    <h2><a name="info">课程信息</a></h2>
+    <h2>1 大数据模型</h2>
 
-    <p>课本
-      <ol>
-        <li>Jure Leskovec, Anand Rajaraman, Jeff Ullman, Mining of Massive Datasets,
-        <a href="http://www.mmds.org/">网址</a> </li>
-        <li>李航:《统计学习方法》</li>
-      </ol>
+    <p>人类已经进入了大数据时代。数据就像空气、水、电力、能源一样，成为了最重要的生产要素。本章介绍大数据的特点和存储计算模型，为后面的大数据算法和模型奠定基础。</p>
 
-    </p>
-    <h2>A、大数据</h2>
-
-    <p>人类已经进入了大数据时代。数据就像空气、水、电力、能源一样，成为了最重要的生产要素。本章介绍大数据的特点和存储计算模型，为后面的大数据机器学习算法奠定基础。</p>
-
-    <h3><a name="intro">一、大数据介绍</a></h3>
+    <h3><a name="intro">1.1 概念</a></h3>
 
     <p>本节带大家了解大数据及其应用的特点，参观大数据中心</p>
 
     <p><a href="https://www.bilibili.com/video/BV1nZ4y1g7vt/">B站视频</a></p>
     <p>课程PPT：<a href="ppt/1-intro.pptx">PPT</a>（7MB）</p>
 
-    <h3><a name="memory">二、存储模型</a></h3>
+    <h3><a name="memory">1.2 存储模型</a></h3>
 
     <p>本节详细介绍大数据系统的存储模型和各项性能指标，然后学习目前最流行的分布式文件系统HDFS的基础知识。这是了解大数据系统的基础，对理解大数据系统性能至关重要。</p>
 
@@ -145,7 +188,7 @@
 
     <p>课程PPT：<a href="ppt/2-memory.pptx">PPT</a>（1MB）</p>
 
-    <h3><a name="compute">三、计算模型</a></h3>
+    <h3><a name="compute">1.3 计算模型</a></h3>
 
     <p>本节介绍Map-Reduce计算模型、框架、开销分析和优化。大数据计算就是通过Map-Reduce实现的，所以掌握这些内容非常重要。</p>
 
@@ -153,305 +196,207 @@
 
     <p>课程PPT：<a href="ppt/3-mapreduce.pptx">PPT</a>（1MB）</p>
 
-    <h2>B、感知机</h2>
+    <h2>2 感知机</h2>
 
     <p>感知机模型，从人类大脑神经元得到启发，具有完美几何解释，一手开创了人工智能。这样的模型，不了解行吗？不行。那就让我们开始吧。</p>
 
-    <h3><a name="ml">四、机器学习基本概念</a></h3>
+    <h3><a name="ml">2.1 机器学习</a></h3>
 
     <p>机器学习是从已知数据中学习出一个函数，然后用这个函数对未知的数据进行预测。本节我们简单了解一下这个概念。</p>
 
     <p><a href="https://www.bilibili.com/video/BV1v5411G7dR/">B站视频</a></p>
     <p>课程PPT：<a href="ppt/4-ml.pptx">PPT</a>（90KB）</p>
 
-    <h3><a name="perceptron">五、感知机</a></h3>
+    <h3><a name="perceptron">2.2 感知机分类算法</a></h3>
 
     <p>感知机模型是一个非常优美、容易理解的机器学习模型。让我们以它为例子，理解什么是机器学习模型吧。很好理解的。试试吧？</p>
 
     <p><a href="https://www.bilibili.com/video/BV1xK41137kn/">B站视频</a></p>
     <p>课程PPT：<a href="ppt/5-perceptron.pptx">PPT</a>（1.8MB）</p>
 
-    <h3><a name="rdd-lab">六、感知机的学习</a></h3>
+    <h3><a name="perceptronlearn">2.3 感知机的学习</a></h3>
 
     <p>感知机有着非常优美的几何描述。基于该几何描述，我们能够非常轻松地理解机器学习是如何从数据中学会一个模型的。这个过程非常有意思，就像人类一样，它能够从错误中改进自己，取得进步呢！所以犯错误真的是非常棒的，因为错误是最好的学习机会。</p>
 
     <p><a href="https://www.bilibili.com/video/BV1Ly4y1S7vp/">B站视频</a></p>
     <p>课程PPT：<a href="ppt/6-perceptron-model.pptx">PPT</a>（146KB）</p>
 
-    <h3><a name="perceptron-opti">七、感知机的优化</a></h3>
+    <h3><a name="perceptron-opti">2.4 感知机的优化</a></h3>
 
     <p>感知机模型也有一些不足，比如它只能模型能够线性分隔的数据。这个缺点曾经导致感知机被放弃了很多年，直到深度学习挽救了它。本节我们介绍当数据线性不可分时，如何训练感知机模型，以及多元感知机和非线性感知机。它们让我们理解现实世界中的机器学习任务是非常复杂的，我们需要对数据有清楚的认识，才来训练出好的机器学习模型。这就是成为一个机器学习高手的秘诀。</p>
 
     <p><a href="https://www.bilibili.com/video/BV1c64y1f757/">B站视频</a></p>
     <p>课程PPT：<a href="ppt/7-perceptron-more.pptx">PPT</a>（168KB）</p>
 
-    <h2>B2、深度学习</h2>
+    <h3><a name="winnow">2.5 大数据 Winnow 分类算法</a></h3>
 
-    <h3><a name="perceptron-deep">深度学习原理</a></h3>
-
-    <p>感知机是深度学习的基础。下面我们来看看感知机进化到深度学习后，有些什么变化</p>
-
-    <p>MIT 深度学习课程PPT：<a href="ppt/18-deep/0-1-mit-dl.pdf">PPT</a>（1.8MB）</p>
-
-    <h3><a name="dlsgd">深度学习梯度下降</a></h3>
-
-    <p>梯度下降是深度学习的基础。下面我们来看看深度学习是任何运用梯度下降的</p>
-
-    <a href="ppt/18-deep/0-2-lec-4-sgd.pdf">PPT</a>
-
-    我们用一个简单例子，来体验一下梯度下降方法的代码实现：
-
-    <ul>
-      <li>梯度下降编程实验：布朗大学，线性回归，梯度下降 实验，代码：<a href="http://yishuai.github.io/bigalgo/hw/soln_gd.ipynb">ipynb</a></li>
-      <li>参考：往届同学，Lisben ML 夏令营 Python和梯度下降入门实验报告：<a href="https://docs.qq.com/doc/DT01ZaXpsck5IblJp">腾讯文档</a></li>
-    </ul>
-
-    <h3><a name="cnn">CNN</a></h3>
-
-    <a href="ppt/18-deep/0-3-mit-cnn.pdf">MIT PPT</a>
-
-    <a href="ppt/18-deep/0-4-lec-8-cnn.pdf"> Berkeley PPT</a>
-
-    <h3><a name="rnn">RNN</a></h3>
-
-    <a href="ppt/18-deep/0-5-lec-10-rnn.pdf">MIT PPT</a>
-
-    <h3><a name="lr-nn">Logistic 回归 和 神经元网络</a></h3>
-
-    <p> 本节介绍 Logistic 回归（LR）和 神经元网络（NN）的基本概念，包括：
-      <ul>
-        <li>Discriminative 概率分类模型 P(c|d) 的基本概念</li>
-        <li>交叉熵 Loss 的由来</li>
-        <li>LR 模型 交叉熵 Loss 对 参数 w 的梯度 的优美形式，即：（模型结果 - 真实值）* x，很容易实现 </li>
-        <li>线性模型（如 感知机）对非线性数据的无能为力</li>
-        <li>通过引入非线性激活函数，神经元网络对非线性数据的强大能力</li>
-        <li>多元分类时的 Softmax 输出</li>
-        <li>基于图的 NN 前向计算 和 后向梯度传播</li>
-      </ul>
-    </p>
-
-    <p>斯坦福 Dan Jurafsky 教授材料
-    <ul>
-      <li>Logistic 回归，<a href="http://www.stanford.edu/class/cs124/lec/logisticregression2021.pptx">PPT</a>（14MB）</li>
-      <li>SLP课本第5章：Logistic 回归，<a href="https://web.stanford.edu/~jurafsky/slp3/5.pdf">PDF</a> </li>
-      <li>神经元网络，<a href="http://www.stanford.edu/class/cs124/lec/7_NN.pptx">PPT</a>（15MB）</li>
-      <li>SLP课本第7章：神经元网络，<a href="https://web.stanford.edu/~jurafsky/slp3/7.pdf">PDF</a></li>
-    </ul>
-    </p>
-
-    <h3><a name="seq2seq">Seq2Seq 和 Attention</a></h3>
-
-    <p>伯克利 Sergey Levine 教授材料
-      <ul>
-        <li>Seq2Seq 和 Attention 的基本概念，<a href="ppt/18-deep/1-seq2seq.pdf">PPT</a>（1.5MB）</li>
-      </ul>
-  
-    <h3><a name="transformer">Transformer</a></h3>
-
-    <p>伯克利 Sergey Levine 教授材料
-    <ul>
-      <li>Transformers，<a href="ppt/18-deep/2-transformer.pdf">PDF</a> (1.4MB) </li>
-    </ul>
-
-    <p>练习
-    <ol>
-      <li>Transformer，<a href="https://docs.qq.com/doc/DT3VSdXV5UEVleGpz">腾讯文档</a></li>
-    </ol>
-    </p>
-
-    <h3><a name="opti">八、Winnow分类算法</a></h3>
-
-    <p>Winnow分类算法和感知机很像，但它使用乘法。当许多维度无关时，它性能更好。它很简单，因此很适合高维数据，在大数据中很常用。</p>
+    <p>受感知机的启发，人们提出了 Winnow 分类算法。它使用乘法。当许多维度无关时，比感知机性能更好。它很简单，因此很适合高维数据，在大数据中很常用。</p>
     <p><a href="https://www.bilibili.com/video/BV1TV411h79P/">B站视频</a></p>
     <p>课程PPT：<a href="ppt/8-winnow.pptx">PPT</a>（129KB）</p>
 
-    <h2>C、支持向量机</h2>
+    <h2>3 支持向量机</h2>
 
     <p> 具有最优美数学形式的支持向量机分类模型，自从被提出以来，就震惊了整个学术界。人们无法想象，这样美的模型怎么可能被人类发明，然而它确实被发明出来了。叹为观止。本章介绍支持向量机的原理和其梯度下降、随机梯度下降的优化方法。</p>
 
-    <h3><a name="svm">九、SVM支持向量机</a></h3>
+    <h3><a name="svm">3.1 SVM 支持向量机</a></h3>
 
     <p>和感知机一样，SVM支持向量机也是要找到一个线性分隔平面。但它比感知机厉害。感知机只要训练集没有错误了，就停止优化了，而SVM还会继续优化，直到找到最佳的分隔平面为止。这是什么意思呢？</p>
 
     <p><a href="https://www.bilibili.com/video/BV1pi4y157Rk/">B站视频</a></p>
     <p>课程PPT：<a href="ppt/9-svm.pptx">PPT</a>（690KB）</p>
 
-    <h3><a name="svm-learn">十、SVM的学习</a></h3>
+    <h3><a name="svm-learn">3.2 SVM 的学习</a></h3>
 
     <p>本节介绍如何构建SVM的优化问题，找到最优线性分隔平面。这个过程非常有意思。</p>
 
     <p><a href="https://www.bilibili.com/video/BV1k54y167MX/">B站视频</a></p>
     <p>课程PPT：<a href="ppt/10-svm-model.pptx">PPT</a>（523KB）</p>
 
-    <h3><a name="hinge">十一、Hinge Loss</a></h3>
+    <h3><a name="hinge">3.3 Hinge Loss</a></h3>
 
     <p>加入Hinge Loss，对越过分隔平面的样本点进行惩罚，这让SVM更能容忍噪声，反映数据的本质特征。Hinge Loss非常有趣，让我们看看吧。</p>
 
     <p><a href="https://www.bilibili.com/video/BV1ja4y1H7J1/">B站视频</a></p>
     <p>课程PPT：<a href="ppt/11-svm-sgd.pptx">PPT</a>（776KB）</p>
 
-    <h3><a name="loss">十二、SVM Loss</a></h3>
+    <h3><a name="loss">3.4 SVM Loss</a></h3>
 
     <p>本节我们综合考虑分割平面的距离Loss和样本的Hinge Loss，得到整个SVM模型的Loss函数。通过控制该函数中的C参数，我们可以调节模型对噪声的容忍度，及其泛化能力。该Loss函数是Convex的，所以可以用梯度下降法优化，这就太方便了。</p>
 
     <p><a href="https://www.bilibili.com/video/BV1Wv411b7sE/">B站视频</a></p>
 
-    <h3><a name="deriv">十三、SVM梯度下降优化</a></h3>
+    <h3><a name="deriv">3.5 SVM梯度下降优化</a></h3>
 
     <p>本节介绍如何计算SVM Loss函数的梯度，特别是Hinge Loss的梯度。得到了梯度后，我们就可以用梯度下降方法，从数据中学习SVM模型了！</p>
 
     <p><a href="https://www.bilibili.com/video/BV1p64y1f7FN/">B站视频</a></p>
 
-    <h3><a name="hinge-deriv">十四、Hinge Loss导数表</a></h3>
+    <h3><a name="hinge-deriv">3.6、Hinge Loss 导数表</a></h3>
 
     <p>本节介绍Hinge Loss导数表。我们将利用这个表，计算所有样本的Hinge Loss的导数。在大数据中，这个表会非常大，所以用Map-Reduce来实现它。了解这个对理解大数据下的SVM模型非常重要。让我们来看看吧。</p>
 
     <p><a href="https://www.bilibili.com/video/BV12a4y1W7NH/">B站视频</a></p>
 
-    <h3><a name="sgd">十五、随机和Batch梯度下降</a></h3>
+    <h3><a name="sgd">3.7 随机和 Batch 梯度下降</a></h3>
 
     <p>本节介绍随机梯度下降和Batch梯度下降方法的原理、实现和效果。这些方法能够极大地提高模型训练的速度（上万倍），所以是目前机器学习和深度学习中的主流方法。</p>
 
     <p><a href="https://www.bilibili.com/video/BV1sT4y1M7pV/">B站视频</a></p>
 
-    <h3><a name="svm-dual">十五C：SVM优化问题的求解</a></h3>
+    <h3><a name="svm-dual">3.8 SVM 优化问题的经典求解方法</a></h3>
 
-    <p> 本节介绍如何构造SVM优化问题的拉格朗日函数，然后通过建立它的对偶问题，进行求解。通过这种方法，求解更加方便。
+    <p> 本节是扩展内容。我们学习求解 SVM 的经典方法。它首先构造 SVM 优化问题的拉格朗日函数，然后通过建立它的对偶问题，进行求解的方法。理解它的原理是必要的。
     </p>
 
     <p>课程PPT：<a href="ppt/10-svm-lihang.pptx">PPT</a>（842KB）</p>
 
-    <p>参考课本：李航老师课本第7章 SVM 的 7.2节《线性支持向量机与软间隔最大化》，7.4节《序列最小最优化算法》及其代码实现：<a href="http://github.com/SmirkCao/Lihang">代码1</a>，<a href="https://github.com/WenDesi/lihang_book_algorithm">代码2</a>
-    </p>
+    <h3><a name="svm-lab">3.9 SVM 练习</a></h3>
 
-    <h3><a name="svm-lab">十五D：SVM练习</a></h3>
-
-    我们下面练习如何实现基于梯度下降的SVM算法：
+    通过练习 SVM 的梯度下降优化方法，我们可以掌握梯度下降这一重要工具。我们下面首先练习梯度下降方法，然后实现基于梯度下降的 SVM 算法：
 
     <ul>
-      <li>SVM编程练习：斯坦福大学，SVM 三种梯度下降方法。说明：<a href="hw/hw4.pdf">PDF</a>（274KB），起始代码：<a href="hw/svm-hw.zip">Zip</a>（4.4MB）</li>，参考答案：<a href="hw/hw4-sol.zip">Zip（151KB）</a>
+      <li>线性回归和梯度下降
+        <ul>
+          <li>里斯本机器学习夏令营，梯度下降实验，<a href="https://docs.qq.com/doc/DT1hkcUZZR2RvVktG">实验说明 1</a>，<a href="https://docs.qq.com/doc/DT01ZaXpsck5IblJp">实验说明 2</a>，第 26-34 页，线性回归模型；第 92-93 页，梯度下降优化方法</li>
+          <li>BROWN 大学线性回归梯度下降实验，<a href="hw/soln_gd.ipynb">Jupyter Notebook</a></li>
+          <li>基于 PyTorch 的线性回归梯度下降练习，<a href="code/5-pytorch-lr.py">Python 文件</a></li>
+        </ul>
+        </li>
+
+        <li>SVM
+        <ul>
+          <li>简单填空练习，<a href="code/1-svm-bgd-ex.py">Python 文件</a>，<a href="code/3-svm-bgd-sol.py">答案 Python 文件</a></li>
+          <li>斯坦福大学 CS246 练习，HW 4，第 1 题，SVM 三种梯度下降方法，<a href="hw/hw4.zip">Zip</a>（4.4MB），参考答案：<a href="hw/hw4-sol.zip">Zip（151KB）</a></li>
+          <li>基于 PyTorch 梯度下降的 SVM 优化，<a href="code/7-svm-pytorch.py">Python 文件</a></li>
+          <li>SVM 经典优化方法实现：<a href="http://github.com/SmirkCao/Lihang">代码1</a>，<a href="https://github.com/WenDesi/lihang_book_algorithm">代码2</a></li>
+        </ul>
     </ul>
 
-  <h2>D. 贝叶斯推断</h2>
+  <h2>4 其它机器学习方法</h2>
 
-    <p>伟大的贝叶斯定理，一直在人类探索世界的过程中处于绝对核心的位置，在此基础上，人们还提出了贝叶斯网络。它们都是我们探索世界的底层逻辑，做出最优决策的准绳。本章介绍它们及其在文本分类中的应用，即朴素贝叶斯分类器。 </p>
+  除了感知机、SVM，我们下面简要介绍三种常用的机器学习方法。
 
-    <p><a href="ppt/12-bayes.pptx">PPT</a>（14.4MB）</p>
+    <h3><a name="ml">4.1 KNN、决策树、Boosting</a></h3>
 
-    <h3><a name="bayesrule">十六、贝叶斯推断</a></h3>
+    <p>本节介绍 KNN、决策树、Boosting 这三种常用机器学习模型的基本概念及其大数据实现。</p>
 
-    <p>
-      贝叶斯推断能基于收集到的证据，对特定假设的概率进行估计，比如“昨天是不是下雨了？”。它是统计机器学习的基石，因此是人工智能和机器学习的核心概念。本节通过讲解和举例，带大家理解贝叶斯推断的内涵。
+    <p><a href="ppt/13-ml-misc.pptx ">PPT</a>（3.9MB）</p>
+
+    <h3><a name="lr">4.2 Logistic 回归</a></h3>
+
+    <p> Logistic 回归和感知机、SVM 模型一样，是分类模型。但它们也有不同：Logistic 回归模型输出的是样本属于类别 1 的概率，而感知机、SVM 输出的是样本的类别（+1/-1）。
+
+    为此，Logistic 回归采用了“交叉熵”作为损失函数。这一损失函数的梯度非常有意思。我们下面就来学习一下它。
+
+    <a href="ppt/17-lr.pptx">PPT</a>
     </p>
 
-    <p><a href="https://www.bilibili.com/video/BV1H64y1f7wr/">B站视频</a></p>
+    <h3><a name="pca-ml-lab">4.3 练习</a></h3>
 
-    <h3><a name="condindep">十七、条件独立</a></h3>
+    <p>学会了降维和机器学习，我们下面来完成一些实验和练习，以体验一个完整的机器学习流程。</p>
 
-    <p>本节介绍如何综合考虑多个证据，对特定假设的概率进行估计。为此，朴素贝叶斯分类器引入了条件独立。条件独立让贝叶斯分类变得简单、可扩展，性能还特别好。
-    </p>
+    <ul>
+      <li>实验</li>
+      <ul>
+        <li>布朗大学，Iris KNN 分类器、波士顿房价的线性回归实验，<a href="hw/brown-iris-knn-boston-lr-lab.zip">Zip</a></li>
+        <li>布朗大学，PCA 降维文档分类、聚类实验，<a href="hw/brown-pca-doc-classify-cluster-lab.zip">Zip</a></li>
+      </ul>
+      <li>练习</li>
+      <ul>
+        <li>斯坦福大学 CS246 练习，HW 4，第 2 题，决策树，<a href="hw/hw4.zip">Zip</a>（4.4MB）</a></li>
+        <li>多伦多大学 Pascal Poupart 老师 AI 课程练习 3 中的决策树部分，根据房子的属性，分类其售价是高还是低，需要编码的内容包括：计算熵、信息增益、选择属性、训练、评估、K阶交叉验证，<a href="hw/decisiontree.zip">材料链接</a>
+        <li>布朗大学，图片、歌曲聚类练习，<a href="hw/brwon-kmeans-img-song-hw.zip">Zip</a></li>
+        </ul>
+      </ul>
+  
+    <h2>5 降维</h2>
 
-    <p><a href="https://www.bilibili.com/video/BV1Cy4y1v73H/">B站视频</a></p>
+    <p>机器学习是从数据中进行学习。如果数据包含冗余或无关变量，模型性能会下降。降维能够消除这些变量，提高模型性能。本节通过具体示例，解释为什么应该降维。具体介绍 PCA（主元素分析）和SVD（奇异值分解）两种降维方法，非常有意思。</p>
 
-    <h3><a name="textc">十八、文本分类</a></h3>
-
-    <p>朴素贝叶斯分类特别适合文本分类。本节通过示例，带大家完成自己的第一个贝叶斯文本分类器。这一方法非常实用，请一定要掌握哦。
-    </p>
-
-    <p><a href="https://www.bilibili.com/video/BV1gK4y1L7wu/">B站视频</a></p>
-
-    <h3><a name="nbayes">十九、朴素贝叶斯模型</a></h3>
-
-    <p>本节首先介绍朴素贝叶斯文本分类的数学模型，然后介绍机器学习的生成模型和判别模型基本概念，指出朴素贝叶斯模型是一个生成模型，这是它不同于感知机、支持向量机的地方。我们然后给出完整的朴素贝叶斯文本分类模型，包括对零概率的处理。这是我们第一次接触统计机器学习模型。模型的魅力是无穷的。
-    </p>
-
-    <p><a href="https://www.bilibili.com/video/BV1UA411W7C2/">B站视频</a></p>
-
-    <h3><a name="curse">二十、维数诅咒</a></h3>
-
-    <p>本节基于客户流失分类的例子，讲解我们在机器学习中经常遇到的一个非常重要的问题：维数诅咒，即：特征使用越多，数据越稀疏，导致分类器参数的精确估计变得更加困难。然后我们说明朴素贝叶斯是如何解决这个问题。这是一个理解维数诅咒的特别好的例子，
-    </p>
-
-    <p><a href="https://www.bilibili.com/video/BV1ia411F7iH/">B站视频</a></p>
-
-    <h3><a name="skill">二十一、应用技巧</a></h3>
-
-    <p>本节介绍在实际中运用朴素贝叶斯分类方法中可能遇到的两个问题：1）两种类别的先验概率极不平衡；2）连续变量，时的处理方法。这些方法在实际中非常有用。
-    </p>
-
-    <p><a href="https://www.bilibili.com/video/BV1ep4y1z7jG/">B站视频</a></p>
-
-    <h3><a name="bnet">二十二、贝叶斯网络</a></h3>
-
-    <p>贝叶斯网络能够将我们对世界的理解，特别是对各种关系的理解，引入机器学习模型。这个优点非常重要，因为我们特别希望我们的机器学习模型是能够解释，是符合我们理解的世界的规律的。我们前面学过的朴素贝叶斯分类器就是贝叶斯网络中的一种。本节通过讲解和举例，带大家理解并掌握贝叶斯网络。本节内容十分重要，请一定要掌握哦。
-    </p>
-
-    <p><a href="https://www.bilibili.com/video/BV17T4y1M7JJ/">B站视频</a></p>
-
-    <h3><a name="marblanket">二十三、马尔科夫毯</a></h3>
-
-    <p>本节分析几种贝叶斯网络中常见的元素关系的独立和条件独立，然后给出马尔科夫毯的概念。马尔科夫毯能帮助我们在一个贝叶斯网络中，定位和我们想要推断的元素的相关元素，因此展开测量和模型。本节内容十分重要。
-    </p>
-
-    <p><a href="https://www.bilibili.com/video/BV14T4y1M7Nt/">B站视频</a></p>
-
-    <h3><a name="mcmc">二十三、蒙特卡洛仿真</a></h3>
-
-    <p> 当理论分析难以进行时，我们还可以通过仿真的方法，研究概率问题。本节介绍蒙特卡洛仿真和马尔科夫链蒙特卡洛仿真。它们在实际中应用非常广泛，值得掌握。 </p>
-
-    <p><a href="ppt/17-mcmc.pptx">PPT</a> (8.5M)</p>
-
-    <h3><a name="hyp">二十三、假设检验原理</a></h3>
-
-    <p> “提出假设”是数据分析的第一步。提出一个假设后，我们从数据中寻找相关证据，对该假设进行检验。本节介绍假设检验的基本原理，关于模型参数的假设检验，和非参数假设检验方法。</p>
-
-    <p><a href="ppt/18-hypothesis.pptx">PPT</a> (367K)</p>
-
-    <h2>E、降维</h2>
-
-    <p>降维是机器学习改进性能的重要手段，同时隐含了重要的深度学习概念：表征学习，应用非常广泛。本章学习PCA（主元素分析）和SVD（奇异值分解）两种降维方法，非常有意思。</p>
-
-    <p>降维原理：<a href="ppt/13-pca.pptx">PPT</a>（571KB）</p>
-
-    <h3><a name="dimension">二十四、降维</a></h3>
-
-    <p>机器学习是从数据中进行学习。如果数据包含冗余或无关变量，模型性能会下降。降维能够消除这些变量，提高模型性能。本节通过具体示例，解释为什么应该降维。
-    </p>
+    <p><a href="ppt/13-pca.pptx">PPT</a>（571KB）</p>
 
     <p><a href="https://www.bilibili.com/video/BV1JA41147Mf/">B站视频</a></p>
 
-    <h3><a name="pca-math">二十四A、PCA数学原理</a></h3>
+    <!-- <h3><a name="pca-math">5.2 PCA 数学原理</a></h3> -->
 
-    <p>对数据矩阵的协方差矩阵做特征分解，得到的特征向量，就是数据在该方向上的投影方差最大的向量，即：特征值最大的特征向量指明了该数据的主方向，依次类推还有其它次方向。这些方向相互正交。然后，将原始数据矩阵与这些主方向做乘积，就完成了向量投影，即坐标变换。这一过程非常有意思。本节从数学的角度，阐述PCA的基本原理。</p>
+    <!-- <p>对数据矩阵的协方差矩阵做特征分解，得到的特征向量，就是数据在该方向上的投影方差最大的向量，即：特征值最大的特征向量指明了该数据的主方向，依次类推还有其它次方向。这些方向相互正交。然后，将原始数据矩阵与这些主方向做乘积，就完成了向量投影，即坐标变换。这一过程非常有意思。本节从数学的角度，阐述 PCA 的基本原理。</p> -->
 
-    <h3><a name="vector">二十五、特征值和特征向量</a></h3>
+    <h3><a name="vector">5.1 特征值和特征向量</a></h3>
 
     <p>本节介绍降维的数学基础：矩阵的特征值和特征向量。通过它们，我们就可以实现各种神奇的降维效果。本节特别介绍幂迭代（power iteration）计算特征向量的方法。该方法特别适合大数据场景。快来看看吧！
     </p>
 
     <p><a href="https://www.bilibili.com/video/BV1kX4y1M7yK/">B站视频</a></p>
 
-    <h3><a name="pca">二十六、主元素分析</a></h3>
+    <h3><a name="pca">5.2 PCA 主元素分析</a></h3>
 
     <p>主元素分析（PCA）可以对原始输入数据进行变换，得到原始数据的正交基描述，而且输入数据在这些正交基上的能量还是依次递减的，第一个基就是数据的主元素。所以，我们就可以实现降维。当我们发现原始输入数据中的特征相关时，就应该做主元素分析。这非常重要，
     </p>
 
     <p><a href="https://www.bilibili.com/video/BV1ZT4y1T7R6/">B站视频</a></p>
 
-    <h3><a name="svd">二十七、奇异值分解</a></h3>
+    <h3><a name="svd">5.3 SVD 奇异值分解</a></h3>
 
     <p>奇异值分解可以将一个矩阵分解为三个子矩阵的乘积，其中两个子矩阵分别反映了原始矩阵的行和列的基本信息，而另一矩阵的数值反映了它们在原始矩阵中的重要程度。基于它们，我们可以获得对样本和样本特征的降维描述，方便后续数据的处理和模型的学习，也可以据此进行推荐，非常有趣。本节我们练习斯坦福的另一个作业。一定要完成哦。
     </p>
 
-    <p><a href="https://www.bilibili.com/video/BV14t4y1Y7VX/">B站视频</a></p>
-
     <p><a href="ppt/14-svd.pptx">PPT</a>（762KB）</p>
 
-    <p>PCA和SVD练习：<a href="hw/hw2.pdf">PDF</a>（318KB）</p>
+    <p><a href="https://www.bilibili.com/video/BV14t4y1Y7VX/">B站视频</a></p>
 
-    <h3><a name="drapp">二十七A、降维应用</a></h3>
+    <h3><a name="drex">5.4 练习</a></h3>
 
-    <p> 降维意味着用一个向量来表示一个对象。因此，除了将用户、商品表示为向量，我们还可以将单词也表示为向量，这就是Word2Vec。本节介绍
+    <p>
+      <ul>
+        <li>Sklearn SVD 代码示例，<a href="code/9-svd.py">Python 文件</a></li>
+        <li>Power Iteration 方法实现 SVD 的代码示例，<a href="code/11-svd-power.py">Python 文件</a></li>
+        <li>斯坦福 PCA 和 SVD 练习：HW 2，第 1 题，<a href="hw/hw2.zip">Zip</a>（1.4MB）</li>
+      </ul>
+    </p>
+
+    <!-- <h3><a name="drapp">5.4 降维应用</a></h3>
+
+    <p> 降维意味着用一个向量来表示一个对象。因此，除了将用户、商品表示为向量，我们还可以将单词也表示为向量，这就是 Word2Vec。本节介绍
 
       <ul>
         <li>将 SVD 应用于单词的coocurrence矩阵，得到单词的向量表征</li>
@@ -461,124 +406,150 @@
       </ul>
     </p>
 
-    <p><a href="ppt/14-word2vec-tsne.pdf ">PDF</a>（18.6MB）</p>
+    <p><a href="ppt/14-word2vec-tsne.pdf ">PDF</a>（18.6MB）</p> -->
 
-  <h2>F、机器学习</h2>
+    <h2>6 推荐系统</h2>
 
-    <h3><a name="ml">二十七B、KNN、决策树、Boosting</a></h3>
-
-    <p>本节介绍 KNN、决策树、Boosting 这三种常用机器学习模型的基本概念。</p>
-
-    <p>参考：李航老师课本
-      <ul>
-        <li>第3章 KNN</li>
-        <li>第5章 决策树</li>
-        <li>第8章 提升方法</li>
-      </ul></p>
-
-    <p><a href="ppt/13-ml-misc.pptx ">PPT</a>（3.9MB）</p>
-
-    <h3><a name="pca-ml-lab">二十七C、PCA 与机器学习练习</a></h3>
-
-    <p>学会了降维和机器学习，我们下面来完成一套完整的机器学习流程，包括两个实验和一个练习。</p>
-
-    <ul>
-      <li>实验</li>
-      <ul>
-        <li>机器学习实验：布朗大学，Iris KNN 分类器、波士顿房价 线性回归 实验，<a href="http://yishuai.github.io/bigalgo/hw/brown-iris-knn-boston-lr-lab.zip">Zip</a></li>
-        <li>PCA 实验：布朗大学，PCA 降维文档分类、聚类 实验，<a href="http://yishuai.github.io/bigalgo/hw/brown-pca-doc-classify-cluster-lab.zip">Zip</a></li>
-      </ul>
-      <li>练习</li>
-      <ul>
-        <li>机器学习练习：布朗大学，图片、歌曲聚类 练习，<a href="http://yishuai.github.io/bigalgo/hw/brwon-kmeans-img-song-hw.zip">Zip</a></li>
-      </ul>
-    </ul>
-
-    <h2>G、推荐系统</h2>
-
-    <p>哪个机器学习算法最值钱？推荐。我们现在买的大部分东西都不是我们主动寻找的，而是被推荐的。其它呢？读的书、观的影、看的文、交的友、走的路、爱的人、....，一切的一切、都是被推荐的。所以，本节我们学习推荐。</p>
+    <p>哪种机器学习算法最值钱？推荐。我们现在买的大部分东西都不是我们主动寻找的，而是被推荐的。其它呢？读的书、观的影、看的文、交的友、走的路、爱的人、....，一切的一切、都是被推荐的。所以，本节我们学习推荐。</p>
 
     <p><a href="ppt/15-recsys/11-1-recsys.pptx">PPT</a>（3.9MB）</p>
 
     <p><a href="ppt/15-recsys/11-2-lecture7.pdf">UCSD PPT 1</a>（2.5MB）</p>
     <p><a href="ppt/15-recsys/11-3-lecture8.pdf">UCSD PPT 2</a>（1.4MB）</p>
 
-    <p>参考：Dan Jurafsky, 推荐系统与合作过滤，<a href="http://web.stanford.edu/class/cs124/lec/collaborativefiltering21.pptx">PPT</a>（3MB）</p>
+    <p>参考：Dan Jurafsky, 推荐系统与合作过滤，<a href="http://web.stanford.edu/class/cs124/lec/cullaborativefiltering21.pptx">PPT</a>（3MB）</p>
 
-    <h3><a name="recsys">二十八、推荐系统模型</a></h3>
+    <h3><a name="recsys">6.1 推荐系统模型</a></h3>
 
     <p>本节介绍推荐系统的基础模型：一个非常稀疏的矩阵描述。推荐系统的作用就是基于有限的数据样本，推断出用户可能最感兴趣的商品。
     </p>
 
     <p><a href="https://www.bilibili.com/video/BV1ra411F7yq/">B站视频</a></p>
 
-    <h3><a name="content">二十九、基于内容的推荐</a></h3>
+    <h3><a name="content">6.2 基于内容的推荐</a></h3>
 
     <p>本节介绍如何利用TF-IDF等方法，提取、构建用户和商品的内容向量，然后匹配它们，为用户提供推荐，比如我们发现一篇文章是关于贝多芬的，而一位用户的历史表明他很喜欢贝多芬的文章，那么就为他推荐这篇文章。这就是基于内容的推荐。
     </p>
 
     <p><a href="https://www.bilibili.com/video/BV1gv411b7oo/">B站视频</a></p>
 
-    <h3><a name="cf">三十、协同过滤</a></h3>
+    <h3><a name="cf">6.3 协同过滤</a></h3>
 
-    <p>本节介绍另一种流行的推荐算法：协同过滤（CF：Collaborative Filter）。它通过用户-商品矩阵，发现相似用户或相似商品，进行推荐。该方法在实际中效果非常好。本节也简短地总结两种推荐系统，讨论推荐中常遇到的另一个问题：冷启动问题。
+    <p>本节介绍另一种流行的推荐算法：协同过滤（CF：Cullaborative Filter）。它通过用户-商品矩阵，发现相似用户或相似商品，进行推荐。该方法在实际中效果非常好。本节也简短地总结两种推荐系统，讨论推荐中常遇到的另一个问题：冷启动问题。
     </p>
 
     <p><a href="https://www.bilibili.com/video/BV1KV411h7tk/">B站视频</a></p>
 
-    <h3><a name="netflix">三十一、Netflix推荐大赛</a></h3>
+    <h3><a name="netflix">6.4 Netflix推荐大赛</a></h3>
 
     <p>在推荐系统的发展史中，奖金高达100万美元的Netflix推荐大赛占据着史诗般的地位。正是这个大赛，极大地提高了推荐系统的知名度，让推荐系统研究成为显学。本节介绍该大赛的问题设置、基于SGD的协同过滤算法、矩阵分解方法、时变模型、集成方法，并回顾当年百万美元花落谁家的惊险一幕。
     </p>
 
     <p><a href="https://www.bilibili.com/video/BV1GK4y1L7Bm/">B站视频</a></p>
 
-    <p>课本阅读
-    <ol>
+    <!-- <p>课本阅读
+    <ul>
         <li>推荐系统英文阅读与书评，<a href="https://docs.qq.com/doc/DT010WHljRVhlVUhV">腾讯文档</a> </li>
-      </ol>
+      </ul>
     </p>
 
     <p>对话推荐系统练习
-    <ol>
+    <ul>
       <li>起始代码分析与运行，<a href="https://docs.qq.com/doc/DT1NpRUZFZXpkdW5M">腾讯文档</a> </li>
-    </ol>
+    </ul>
+    </p> -->
+
+    <h3><a name="recomex">6.5 练习</a></h3>
+
+    <ul>
+      <li>斯坦福 CS246 练习：HW 2，第 3，4 题，<a href="hw/hw2.zip">Zip</a>（1.1MB）</li>
+    </ul>
     </p>
 
-    <p>PCA、SVD 算法练习
-    <ol>
-      <li>斯坦福 CS246 大数据处理练习：第3，4题，<a href="hw/hw2.pdf">PDF</a>（318KB），<a href="hw/hw2.zip">数据</a>（1.1MB）</li>
-    </ol>
+    <h2><a name="dl">7 深度学习</a></h2>
+
+    感知机、SVM、Logistic 回归、Gradient Boosting 的很多思想，在神经元网络和深度学习中都有应用。因此，学习了它们之后，我们再学习神经元网络和深度学习，就会感觉到十分自然。
+
+    <h3><a name="nn">7.1 神经元网络基本概念</a></h3>
+    <p>
+      <ul>
+        <li>神经元网络基本概念，<a href="ppt/18-deep/0-1-mit-dl.pdf">PPT</a></li>
+        <li>梯度下降优化方法，<a href="ppt/18-deep/0-2-lec-4-sgd.pdf">PPT</a></li>
+        <li><a href="https://space.bilibili.com/88039759/channel/collectiondetail?sid=1909500">B 站视频</a></li>
+      </ul>
     </p>
 
-    <h2>H、通过试验学习</h2>
+    <h3><a name="word2vec">7.2 深度学习表征</a></h3>
+
+    <p>
+      深度学习表征，<a href="ppt/18-deep/1-word2vec-tsne.pdf">PPT</a>
+    </p>
+
+    <h3><a name="cnn">7.3 CNN</a></h3>
+
+    <p>
+      CNN 卷积模型与深度视觉技术，<a href="ppt/18-deep/3-3-mit-cnn.pdf">PPT 1</a>，<a href="ppt/18-deep/3-4-lec-8-cnn.pdf">PPT 2</a>
+    </p>
+
+
+    <h3><a name="rnn">7.4 RNN </a></h3>
+
+    <p>
+      <ul>
+        <li>RNN 序列模型，<a href="ppt/18-deep/5-5-lec-10-rnn.pdf">PPT</a></li>
+        <li>RNN with Attention，<a href="ppt/18-deep/5-7-seq2seq-attention.pdf">PPT</a></li>
+      </ul>
+    </p>
+
+    <h3><a name="tf">7.5 Transformer </a></h3>
+
+    <p>
+      Transformer 结构设计，<a href="ppt/18-deep/12-1-transformers.pdf">PPT 1</a>，<a href="ppt/18-deep/12-3-transformer.pdf">PPT 2</a>，<a href="ppt/18-deep/12-5-architecture.pdf">PPT 3</a>
+    </p>
+
+    <h3><a name="prellm">7.6 预训练大语言模型</a></h3>
+
+    <p>
+      Transformer 预训练大语言模型，<a href="ppt/18-deep/12-7-tansformer-bert-pretraining.pdf">PPT 1</a>，<a href="ppt/18-deep/12-9-cs224n-pretraining.pdf">PPT 2</a>，<a href="ppt/18-deep/13-1-nlp.pdf">PPT 3</a>
+    </p>
+
+    <h3><a name="dlrex">7.7 练习</a></h3>
+
+    <p>
+      <ul>
+        <li>各种神经元网络代码示例，<a href="code/13-dl.zip">Zip 文件</a></li>
+        <li>华盛顿大学 CS447 深度 NLP 练习，<a href="hw/transformer.zip">Zip 文件</a></li>
+      </ul>
+    </p>
+
+    <h2>8. 通过试验学习</h2>
 
     <p>朋友，你有没有走进游戏厅，面对满屋老虎机，不知道如何下手？你知不知道，人生也有一点像老虎机，你需要在尝试中学习？你又想不想知道，要玩好人生老虎机，是要乐观呢，还是悲观？没错，这是一个机器学习问题。本节我们就来系统学习这个问题，找到老虎机的最优玩法。</p>
 
     <p><a href="ppt/16-bandit.pptx">PPT</a>（2.1MB）</p>
 
-    <h3><a name="experi">三十二、通过试验学习</a></h3>
+    <h3><a name="experi">8.1 通过试验学习</a></h3>
 
     <p>当你走进一个游戏厅，面对一排老虎机，是不是有一丝茫然：怎么玩才是最优的呢？这是一个通过实验进行学习的问题。本节介绍这一问题的基本概念和应用场景，你会发现原来它这么有用啊。
     </p>
 
     <p><a href="https://www.bilibili.com/video/BV1TZ4y137i6/">B站视频</a></p>
 
-    <h3><a name="mab">三十三、多臂老虎机模型</a></h3>
+    <h3><a name="mab">8.2 多臂老虎机模型</a></h3>
 
     <p>本节介绍多臂老虎机（MAB）问题的模型。它是“通过实验学习”这一问题的经典模型。这个模型非常有趣，
     </p>
 
     <p><a href="https://www.bilibili.com/video/BV1qa4y1H7Vr/">B站视频</a></p>
 
-    <h3><a name="regret">三十四、老虎机的悔恨</a></h3>
+    <h3><a name="regret">8.3 老虎机的悔恨</a></h3>
 
     <p>本节首先介绍多臂老虎机的性能评估指标：悔恨。这是通过试验学习特有的一个性能指标，非常有趣，也非常有道理。你一定会喜欢的。本节然后定义什么是多臂老虎机问题的最优策略。它非常深刻，很有意思，
     </p>
 
     <p><a href="https://www.bilibili.com/video/BV1wK411G7zP/">B站视频</a></p>
 
-    <h3><a name="explore">三十五、探索与利用</a></h3>
+    <h3><a name="explore">8.4 探索与利用</a></h3>
 
     <p>
       通过实验学习的核心问题是：如何平衡“探索未知”和“利用已知”。这是决策制定中的经典难题。对这个问题的讨论，可能会给你带来极大的启发，改变你的人生！
@@ -586,14 +557,14 @@
 
     <p><a href="https://www.bilibili.com/video/BV1y64y1f7j5/">B站视频</a></p>
 
-    <h3><a name="epsilon">三十六、epsilon-贪心算法</a></h3>
+    <h3><a name="epsilon">8.5 epsilon-贪心算法</a></h3>
 
     <p>本节介绍基于实验的学习的一个简单解法方法：epsilon-贪心算法。它会随着时间的增长，慢慢减少探索，增加利用。它可是一种最优算法哦：采用该算法，你最终会找到最优的老虎机。
     </p>
 
     <p><a href="https://www.bilibili.com/video/BV1o5411G7GK/">B站视频</a></p>
 
-    <h3><a name="ucb">三十七、UCB 算法</a></h3>
+    <h3><a name="ucb">8.6 UCB 算法</a></h3>
 
     <p> UCB（置信区间上界）算法会选择置信区间上界最大的老虎机。这一方法既探索了未知，又利用了已知，让人拍案叫绝，成为目前应用最广泛的通过试验学习的算法。它也是一种最优算法：采用该算法，你最终会找到最优的老虎机。
 
@@ -601,19 +572,21 @@
 
     <p><a href="https://www.bilibili.com/video/BV1Q54y1477k/">B站视频</a></p>
 
-    <h3><a name="contextual">三十八、上下文老虎机</a></h3>
+    <h3><a name="contextual">8.7 上下文老虎机</a></h3>
 
     <p> 上下文老虎机（Contextual Bandit）允许你在做决策时，考虑此时情境。比如在推荐新闻时，考虑读者的喜好。这实在是太强大了，
     </p>
 
     <p><a href="https://www.bilibili.com/video/BV17K411G7Tr/">B站视频</a></p>
 
-    <h3><a name="linucb">三十九、LinUCB 算法</a></h3>
+    <h3><a name="linucb">8.8 LinUCB 算法</a></h3>
 
     <p> 本节介绍经典的 Contextual Bandit 算法：LinUCB。它假设回报是情境变量的线性加权和，即线性回归模型。它会按UCB算法选出最好的老虎机，也会根据实验结果不断更新每个老虎机的回报模型。本节也介绍Yahoo是如何用该方法实现新闻推荐的，
     </p>
 
     <p><a href="https://www.bilibili.com/video/BV15z4y1r7Ag/">B站视频</a></a></p>
+
+    <h3><a name="banditex">8.9 练习</a></h3>
 
     <p>实验：基于微软 Vowpal Wabbit AI库 的 Contextual Bandit 实验
       <ul>
@@ -625,22 +598,116 @@
       </ul>
     </p>
 
-    <h3><a name="end">四十、结课</a></h3>
+    <p>多伦多大学 Pascal Poupart 老师 AI 课程练习 MDP，<a href="hw/mdp.zip">Zip</a></p>
 
-    <p>恭喜大家完成了大数据机器学习的内容。致敬。再会！
+    <h2>9 贝叶斯推断</h2>
+
+    <p>伟大的贝叶斯定理，一直在人类探索世界的过程中处于绝对核心的位置，在此基础上，人们还提出了贝叶斯网络。它们都是我们探索世界的底层逻辑，做出最优决策的准绳。本章介绍它们及其在文本分类中的应用，即朴素贝叶斯分类器。 </p>
+
+    <p><a href="ppt/12-bayes.pptx">PPT</a>（14.4MB）</p>
+
+    <h3><a name="bayesrule">9.1 贝叶斯推断</a></h3>
+
+    <p>
+      贝叶斯推断能基于收集到的证据，对特定假设的概率进行估计，比如“昨天是不是下雨了？”。它是统计机器学习的基石，因此是人工智能和机器学习的核心概念。本节通过讲解和举例，带大家理解贝叶斯推断的内涵。
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV1H64y1f7wr/">B站视频</a></p>
+
+    <h3><a name="condindep">9.2 条件独立</a></h3>
+
+    <p>本节介绍如何综合考虑多个证据，对特定假设的概率进行估计。为此，朴素贝叶斯分类器引入了条件独立。条件独立让贝叶斯分类变得简单、可扩展，性能还特别好。
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV1Cy4y1v73H/">B站视频</a></p>
+
+    <h3><a name="textc">9.3 文本分类</a></h3>
+
+    <p>朴素贝叶斯分类特别适合文本分类。本节通过示例，带大家完成自己的第一个贝叶斯文本分类器。这一方法非常实用，请一定要掌握哦。
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV1gK4y1L7wu/">B站视频</a></p>
+
+    <h3><a name="nbayes">9.4 朴素贝叶斯模型</a></h3>
+
+    <p>本节首先介绍朴素贝叶斯文本分类的数学模型，然后介绍机器学习的生成模型和判别模型基本概念，指出朴素贝叶斯模型是一个生成模型，这是它不同于感知机、支持向量机的地方。我们然后给出完整的朴素贝叶斯文本分类模型，包括对零概率的处理。这是我们第一次接触统计机器学习模型。模型的魅力是无穷的。
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV1UA411W7C2/">B站视频</a></p>
+
+    <h3><a name="curse">9.5 维数诅咒</a></h3>
+
+    <p>本节基于客户流失分类的例子，讲解我们在机器学习中经常遇到的一个非常重要的问题：维数诅咒，即：特征使用越多，数据越稀疏，导致分类器参数的精确估计变得更加困难。然后我们说明朴素贝叶斯是如何解决这个问题。这是一个理解维数诅咒的特别好的例子，
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV1ia411F7iH/">B站视频</a></p>
+
+    <h3><a name="skill">9.6 应用技巧</a></h3>
+
+    <p>本节介绍在实际中运用朴素贝叶斯分类方法中可能遇到的两个问题：1）两种类别的先验概率极不平衡；2）连续变量，时的处理方法。这些方法在实际中非常有用。
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV1ep4y1z7jG/">B站视频</a></p>
+
+    <h3><a name="bnet">9.7 贝叶斯网络</a></h3>
+
+    <p>贝叶斯网络能够将我们对世界的理解，特别是对各种关系的理解，引入机器学习模型。这个优点非常重要，因为我们特别希望我们的机器学习模型是能够解释，是符合我们理解的世界的规律的。我们前面学过的朴素贝叶斯分类器就是贝叶斯网络中的一种。本节通过讲解和举例，带大家理解并掌握贝叶斯网络。本节内容十分重要，请一定要掌握哦。
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV17T4y1M7JJ/">B站视频</a></p>
+
+    <h3><a name="marblanket">9.8 马尔科夫毯</a></h3>
+
+    <p>本节分析几种贝叶斯网络中常见的元素关系的独立和条件独立，然后给出马尔科夫毯的概念。马尔科夫毯能帮助我们在一个贝叶斯网络中，定位和我们想要推断的元素的相关元素，因此展开测量和模型。本节内容十分重要。
+    </p>
+
+    <p><a href="https://www.bilibili.com/video/BV14T4y1M7Nt/">B站视频</a></p>
+
+    <h3><a name="bayesex">9.9 练习</a></h3>
+
+    <p>多伦多大学 Pascal Poupart 老师 AI 课程练习，信用卡欺诈概率推断，<a href="hw/bayes.zip">Zip</a></p>
+
+    <h3><a name="end">结课</a></h3>
+
+    <p>恭喜大家完成了大数据存储和处理（算法和模型）课程的内容。致敬。再会！
     </p>
 
     <p><a href="https://www.bilibili.com/video/BV1YV411h77D/">B站视频</a></p>
 
-    <h3><a name="exp">四十一、实验</a></h3>
+    <h3><a name="quiz">Quiz</a></h3>
+
+    <p>
+      <ul>
+        <li>概念复习题，<a href="qa.md">TXT 文件</a></li>
+      </ul>
+      </p>
+
+    <h3><a name="exp">参考材料</a></h3>
+
+    编程
 
     <ul>
       <li>王一行，《Python基础指南》，<a href="exercise/python.docx">Docx, 1.6MB</a></li>
       <li>熊治杰，《Python手册》，<a href="https://mp.weixin.qq.com/s/OqE8gRLL2G78d8pYYSUKLw">网页</a></li>
       <li>张璇，《Python机器学习快速上手入门指南》，<a href="exercise/mllab.docx">Docx, 237KB</a>，<a href="exercise/mllab.pdf">PDF, 342KB</a>，Iris实验代码和数据，<a href="exercise/iris.zip">Zip，1.5MB</a></li>
-      <li>杜克大学，BIOS系列练习，<a href="https://github.com/cliburn/bios-823-2021">Github链接</a></li>
-      <li>MIT 6S191 Deep Learning, <a href="http://introtodeeplearning.com/">课程网址</a>，实验代码：<a href="https://github.com/aamini/introtodeeplearning">Github链接</a></li>
+      <li>杜克大学，BIOS Python 数据科学系列练习，<a href="https://github.com/cliburn/bios-823-2021">Github链接</a></li>
+      <li>Spark 原理和实践，<a href="https://yishuai.github.io/spark">网页</a>，包括 PPT 和 B站视频链接</li>
+      <li>Soumith Chintala，Deep Learning with PyTorch: A 60 Minute Blitz，<a href="https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html">网页</a>，<a href="https://zhuanlan.zhihu.com/p/25572330">中文翻译</a></li>
+      <li>Pytorch 官网快速入门教程，掌握 Tensor（向量）、autograd（梯度下降）、神经元网络等基本概念。可以点击网页左上角的链接，进行网络实验，<a href="https://pytorch.org/tutorials/beginner/basics/intro.html">网址</a></li>
     </ul>
+
+    课程
+    <ul>
+      <li>MIT 6S191 Deep Learning, <a href="http://introtodeeplearning.com/">课程网址</a>，实验代码：<a href="https://github.com/aamini/introtodeeplearning">Github链接</a></li>
+      <li>UCSD Spark 大数据分析课程，<a href="https://courses.edx.org/courses/course-v1:UCSanDiegoX+DSE230x+3T2019">2019 年</a>，<a href="https://mas-dse.github.io/resources/">课程资源</a>，<a href="https://github.com/ucsd-edx/CSE255-DSE230-2018">代码</a></li>
+      <li>布朗大学数据科学，<a href="https://cs1951a-summer2021-brown.github.io/index.html">课程网址</a></li>
+    </ul>
+
+    工具
+    <ul>
+      <li>AI 工具：一起探索吧（非常耐心的导师），阿里通义，<a href="https://m.tongyi.aliyun.com/app/tongyi/tongyi-hybrid/share-resolt?shareId=19913999-ec8f-4e7e-a996-d4921734d61b">APP</a>，<a href="https://t.aliyun.com/U/93YWTT">网页</a>，下载和安装“通义千问”APP，或者网页注册 </li>
+    </ul>
+
   </p>
 
     <!-- <h2 id="致谢">致谢</h2>
